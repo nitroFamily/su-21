@@ -1,0 +1,161 @@
+@mixin tr {
+	-webkit-transition: all 1 ease;
+	-moz-transition: all 1 ease;
+	-ms-transition: all 1 ease;
+	-o-transition: all 1 ease;
+	transition: all 1 ease;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,700&subset=latin,cyrillic-ext);
+@import url(http://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic-ext);
+$font-family-sans-serif: 'Roboto';
+
+// Custom navbar
+$navbar-height: 75px;
+$navbar-default-bg: #333333;
+$navbar-default-color: #fff;
+$navbar-default-link-color: #fff;
+
+@import "bootstrap";
+
+.navbar {
+	font-weight: 100;
+	font-size: 16px;
+	.navbar-brand {
+		font-family: 'Lobster', cursive;
+		font-size: 20px;
+		color: orange;
+	}
+	.nav li a {
+		&:hover {
+			color: #FFA169;
+		}
+	}
+}
+
+.jumbotron {
+	margin-top: 200px;
+	background-color: inherit;
+}
+
+a {
+	@include tr;
+	color: orange;
+	&:hover {
+		color: #333333;
+	}
+}
+
+
+// Helpers
+.center {
+	text-align: center;
+}
+
+.lobster {
+	font-family: 'Lobster', cursive;
+}
+
+.bgw {
+	background-color: #FFF;
+}
+
+
+.home-page-image {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	background: url(http://workdemostration.com/transfrontimmigration4/images/photodune-432300-happy-group-of-people-m.jpg);
+	background-position: center center;
+	background-size: cover;
+}
+
+.home-page-spacer {
+	width: 100%;
+	height: 100%;
+}
+
+.gradient {
+	/* Legacy browsers */
+	width: 100%;
+	height: 100%;
+	background: lightsalmon url("gradient-bg.png") repeat-x top;
+	-o-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+	/* Recent browsers */
+	background: -webkit-gradient(
+		linear,
+		left top, right bottom,
+		from(orange),
+		to(lightsalmon)
+	);
+	background: -webkit-linear-gradient(
+		left top,
+		orange,
+		lightsalmon
+	);
+	background: -moz-linear-gradient(
+		left top,
+		orange,
+		lightsalmon
+	);
+	background: -o-linear-gradient(
+		left top,
+		orange,
+		lightsalmon
+	);
+	background: linear-gradient(
+		left top,
+		orange,
+		lightsalmon
+	);
+}	
+
+
+// Students preview
+.student-preview {
+	img {
+		display: block;
+		margin: 0 auto;
+		max-width: 70%;
+	}
+	h3, h4 {
+		text-align: center;
+	}
+	p {
+		text-align: justify;
+	}
+	.social {
+		font-size: 20px;
+		text-align: center;
+		span {
+			margin: 5px;
+		}
+	}
+	&:hover {
+
+	}
+}
+
+// Timer
+.timer {
+	width: 100%;
+	height: 300px;
+	background-color: rgba(51,51,51, 0.5);
+	color: #FFA169;
+	h3 {
+		font-size: 125px;
+		font-weight: 100;
+	}
+}
+
+// Footer
+footer {
+	height: 300px;
+	background-color: #333333;
+}
