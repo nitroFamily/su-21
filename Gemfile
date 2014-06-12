@@ -15,3 +15,5 @@ end
 
 gem 'bootstrap-sass'
 gem 'slim-rails'
+gem 'devise'
+gem "font-awesome-rails"

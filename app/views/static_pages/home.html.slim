@@ -1,9 +1,20 @@
+- content_for(:head) do
+	= javascript_include_tag "static_pages"
+	= stylesheet_link_tag "static_pages"
+
 div.home-page-image
-div.gradient
+div.home-hero.gradient
 	div.container
-		div.jumbotron.center
+		div.jumbotron
 			h1.lobster Су-21
 			p Самая крутая группа
+			p.social 
+				a href="http://vk.com/su_21" target="blank"
+					i class="fa fa-vk fa-lg"
+				a href="mailto:samaydanov@gmail.com"
+					i class="fa fa-envelope-square fa-lg"
+
+= render "layouts/navbar"
 
 div.bgw
 	div.container
@@ -12,6 +23,15 @@ div.bgw
 				h1.lobster 
 					a href="#" Расписание
 				p Сейчас идет Пара №1 там то там то
+		hr
+		div.row
+			div.col-md-12.center
+				h1.lobster 
+					a href="#" Новости и полезная инфа
+				h2 Что-то полезное
+				p Lorem ipsum...
+				h2 Что-то важное
+				p Lorem ipsum...
 		hr
 		div.row
 			div.col-md-12

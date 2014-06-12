@@ -1,5 +1,11 @@
 Su21::Application.routes.draw do
+  devise_for :users, :skip => :registrations
   root 'static_pages#home'
+
+  namespace :admin do
+    match '/', to: 'dashboard#dashboard', via: 'get'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

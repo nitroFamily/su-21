@@ -14,18 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require_tree .
-
-function scrollHandler(){
-	var top_offset = $(document).scrollTop();
-	if(top_offset > 100) {
-		$(".navbar").fadeIn();
-	} else {
-		$(".navbar").fadeOut();
-	}
-}
-
-$(document).ready(function(){
-	$(".navbar").hide();
-	$( window ).scroll(scrollHandler);
-});

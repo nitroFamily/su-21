@@ -1,13 +1,27 @@
-@mixin tr {
-	-webkit-transition: all 1 ease;
-	-moz-transition: all 1 ease;
-	-ms-transition: all 1 ease;
-	-o-transition: all 1 ease;
-	transition: all 1 ease;
+@mixin css-transition($delay) {
+	-webkit-transition: $delay all ease;
+	-moz-transition: $delay all ease;
+	-ms-transition: $delay all ease;
+	-o-transition: $delay all ease;
+	transition: $delay all ease;
+}
+
+@mixin css-transform($transform) {
+	-webkit-transform: $transform;
+	-moz-transform: $transform;
+	-ms-transform: $transform;
+	-o-transform: $transform;
+	transform: $transform;
 }
 
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,700&subset=latin,cyrillic-ext);
 @import url(http://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic-ext);
+
+$primary-color: orange;
+$secondary-color: #FFA169;
+$font-color: #333333;
+
+
 $font-family-sans-serif: 'Roboto';
 
 // Custom navbar
@@ -17,6 +31,10 @@ $navbar-default-color: #fff;
 $navbar-default-link-color: #fff;
 
 @import "bootstrap";
+
+body {
+	margin-top: 75px;
+}
 
 .navbar {
 	font-weight: 100;
@@ -33,20 +51,6 @@ $navbar-default-link-color: #fff;
 	}
 }
 
-.jumbotron {
-	margin-top: 200px;
-	background-color: inherit;
-}
-
-a {
-	@include tr;
-	color: orange;
-	&:hover {
-		color: #333333;
-	}
-}
-
-
 // Helpers
 .center {
 	text-align: center;
@@ -60,6 +64,45 @@ a {
 	background-color: #FFF;
 }
 
+.mt75 {
+	margin-top: 75px;
+}
+
+// Typography
+a {
+	color: orange;
+	@include css-transition(0.25s);
+	&:hover {
+		color: #333333;
+	}
+}
+
+// Home page styles
+.home-hero {
+	width: 100%;
+	height: 100%;
+	display: table;
+	.container {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	.jumbotron {
+		background-color: inherit;
+		text-align: center;
+		.social {
+			a {
+				color: $font-color;
+			}
+			i {
+				margin: 0 7px;
+				@include css-transition(0.25s);
+				&:hover {
+					@include css-transform(scale(1.25,1.25));
+				}
+			}
+		}
+	}
+}
 
 .home-page-image {
 	position: fixed;
@@ -80,8 +123,6 @@ a {
 
 .gradient {
 	/* Legacy browsers */
-	width: 100%;
-	height: 100%;
 	background: lightsalmon url("gradient-bg.png") repeat-x top;
 	-o-background-size: 100% 100%;
 	-moz-background-size: 100% 100%;
@@ -130,15 +171,7 @@ a {
 	p {
 		text-align: justify;
 	}
-	.social {
-		font-size: 20px;
-		text-align: center;
-		span {
-			margin: 5px;
-		}
-	}
 	&:hover {
-
 	}
 }
 
