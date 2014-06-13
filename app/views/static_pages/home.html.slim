@@ -1,4 +1,6 @@
 - content_for(:head) do
+	= javascript_include_tag "TimeCircles"
+	= stylesheet_link_tag "TimeCircles"
 	= javascript_include_tag "static_pages"
 	= stylesheet_link_tag "static_pages"
 
@@ -79,6 +81,5 @@ div.timer
 	div.container
 		div.row
 			div.col-md-12
-				h1.lobster.center Мы вместе уже
-				h3.center	12:123:23:3
-
+				h1.lobster.center.text-gradient Мы вместе уже
+				.example data-date=("2012-09-01 00:00:00") 
