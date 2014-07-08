@@ -1,39 +1,9 @@
-@mixin css-transition($delay) {
-	-webkit-transition: $delay all ease;
-	-moz-transition: $delay all ease;
-	-ms-transition: $delay all ease;
-	-o-transition: $delay all ease;
-	transition: $delay all ease;
-}
-
-@mixin css-transform($transform) {
-	-webkit-transform: $transform;
-	-moz-transform: $transform;
-	-ms-transform: $transform;
-	-o-transform: $transform;
-	transform: $transform;
-}
-
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,700&subset=latin,cyrillic-ext);
-@import url(http://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic-ext);
-
-$primary-color: orange;
-$secondary-color: #FFA169;
-$font-color: #333333;
-
-
-$font-family-sans-serif: 'Roboto';
-
-// Custom navbar
-$navbar-height: 75px;
-$navbar-default-bg: #333333;
-$navbar-default-color: #fff;
-$navbar-default-link-color: #fff;
-
-@import "bootstrap";
+@import "config";
+@import "mixins";
+@import "helpers";
 
 body {
-	margin-top: 75px;
+	margin-top: 90px;
 }
 
 .navbar {
@@ -49,23 +19,6 @@ body {
 			color: #FFA169;
 		}
 	}
-}
-
-// Helpers
-.center {
-	text-align: center;
-}
-
-.lobster {
-	font-family: 'Lobster', cursive;
-}
-
-.bgw {
-	background-color: #FFF;
-}
-
-.mt75 {
-	margin-top: 75px;
 }
 
 // Typography

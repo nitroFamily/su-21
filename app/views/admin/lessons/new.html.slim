@@ -1,0 +1,6 @@
+- content_for(:page_header, "Новая пара")
+
+= form_for @lesson, url: admin_lessons_path(@lesson) do |f|
+	= render "shared/errors", object:f.object
+	= render "form", f:f
+	= f.submit "Создать"

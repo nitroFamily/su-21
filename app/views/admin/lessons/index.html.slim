@@ -1,0 +1,28 @@
+= content_for(:page_header, "Пары");
+ul.nav.nav-tabs
+	li 
+		= link_to "Все", admin_lessons_path
+	li 
+		= link_to "Создать новую", new_admin_lesson_path
+
+table.table.table-striped
+	thead
+		th День
+		th №
+		th Название
+		th Тип
+		th Продолжительность
+		th Действие
+	tbody
+		- @lessons.each do |lesson|
+			tr
+				td = lesson.day
+				td = lesson.number
+				td = lesson.name
+				td = type_by_num(lesson.form)
+				td = "#{lesson.start_week} - #{lesson.end_week}" 
+				td 
+					= link_to edit_admin_lesson_path(lesson) do
+						span.glyphicon.glyphicon-edit
+					= link_to admin_lesson_path(lesson), method: :delete do
+						span.glyphicon.glyphicon-remove

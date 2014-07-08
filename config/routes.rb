@@ -4,7 +4,10 @@ Su21::Application.routes.draw do
 
   namespace :admin do
     match '/', to: 'dashboard#dashboard', via: 'get'
+    resources :lessons
   end
+
+  match 'lessons', to: 'lessons#index', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

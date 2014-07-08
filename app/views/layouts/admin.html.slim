@@ -1,0 +1,27 @@
+html
+	= render 'layouts/head'
+	body
+		= render 'layouts/navbar' unless action_name == "home"
+
+		div.container
+			div.row
+				div.col-md-12
+					= render 'layouts/flashes'
+			div.row
+				div.col-md-3
+					ul class="nav nav-pills nav-stacked"
+					  li class=("active" if params[:controller] == "admin/dashboard")
+					  	= link_to "Dashboard", admin_path
+					  li class=("active" if params[:controller] == "admin/lessons")
+					  	= link_to "Пары", admin_lessons_path
+
+				div.col-md-9
+					h1 
+						= yield(:page_header)
+					hr
+					= yield
+
+		= render 'layouts/footer'
+
+		div class="container debug"
+			= debug(params) if Rails.env.development?

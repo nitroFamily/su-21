@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140612144238) do
+ActiveRecord::Schema.define(version: 20140708103320) do
+
+  create_table "lessons", force: true do |t|
+    t.string   "name"
+    t.integer  "form"
+    t.integer  "number"
+    t.string   "classroom"
+    t.integer  "day"
+    t.integer  "start_week"
+    t.integer  "end_week"
+    t.integer  "periodicity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
