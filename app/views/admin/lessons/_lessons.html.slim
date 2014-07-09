@@ -1,0 +1,23 @@
+table.table.table-striped
+	thead
+		th = sortable "day", "День"
+		th = sortable "number", "№"
+		th = sortable "name", "Название"
+		th = sortable "form", "Тип"
+		th Продолжительность
+		th Действие
+	tbody
+		- @lessons.each do |lesson|
+			tr id="#{lesson.id}"
+				td = lesson.day
+				td = lesson.number
+				td = lesson.name
+				td = type_by_num(lesson.form)
+				td = "#{lesson.start_week} - #{lesson.end_week}" 
+				td 
+					= link_to edit_admin_lesson_path(lesson) do
+						span.glyphicon.glyphicon-edit
+					= link_to admin_lesson_path(lesson), method: :delete, remote: true do
+						span.glyphicon.glyphicon-remove
+
+= will_paginate @lessons, renderer: BootstrapPagination::Rails 

@@ -1,6 +1,8 @@
 class Admin::LessonsController < Admin::AdminController
+  helper_method :sort_column, :sort_direction
+
 	def index 
-    @lessons = Lesson.all
+    @lessons = Lesson.search(params[:search]).order(sort_column + " " + sort_direction).paginate(per_page: 10, page: params[:page])
 	end 
 
 	def new 
@@ -32,9 +34,14 @@ class Admin::LessonsController < Admin::AdminController
   end
 
   def destroy
-    Lesson.find(params[:id]).destroy
-    flash[:success] = "Пара удалена"
-    redirect_to admin_lessons_path
+    @lesson = Lesson.find(params[:id]).destroy
+    respond_to do |format|
+      format.html do
+        flash[:success] = "Пара удалена"
+        redirect_to admin_lessons_path
+      end
+      format.js
+    end
   end
 
 	private
@@ -47,5 +54,13 @@ class Admin::LessonsController < Admin::AdminController
       															 :start_week,
       															 :end_week,
       															 :periodicity)
+    end
+
+    def sort_column
+      Lesson.column_names.include?(params[:sort]) ? params[:sort] : "day"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 end

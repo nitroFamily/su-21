@@ -7,7 +7,8 @@ Su21::Application.routes.draw do
     resources :lessons
   end
 
-  match 'lessons', to: 'lessons#index', via: 'get'
+  match 'day',  to: 'lessons#day',  via: 'get'
+  match 'week', to: 'lessons#week', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

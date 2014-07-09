@@ -17,3 +17,4 @@ gem 'bootstrap-sass'
 gem 'slim-rails'
 gem 'devise'
 gem "font-awesome-rails"
+gem 'will_paginate-bootstrap'

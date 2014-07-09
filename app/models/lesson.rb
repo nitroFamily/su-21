@@ -1,6 +1,6 @@
 class Lesson < ActiveRecord::Base
 	VALID_CLASSROOM_REGEX = /\A^\d{3}(\/\d{1}|\/\d{1}\/\d{1})$\z/i
-  default_scope -> { order('day ASC, number ASC') }
+  # default_scope -> { order('day ASC, number ASC') }
 	validates :name, presence: true, length: {minimum: 2, maximum: 20}
   validates :form, presence: true, numericality: { only_integer: true, 
   																								 greater_than_or_equal_to: 1,
@@ -22,4 +22,13 @@ class Lesson < ActiveRecord::Base
   validates :periodicity, presence: true, numericality: { only_integer: true, 
                                                           greater_than_or_equal_to: 1,
                                                           less_than_or_equal_to: 3 }  
+
+
+  def self.search(search)
+    if search 
+      where 'name LIKE ?', "%#{search}%" 
+    else
+      scoped
+    end
+  end
 end

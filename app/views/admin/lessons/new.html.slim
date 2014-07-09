@@ -1,4 +1,9 @@
 - content_for(:page_header, "Новая пара")
+ul.nav.nav-tabs
+	li 
+		= link_to "Все", admin_lessons_path
+	li.active 
+		= link_to "Создать новую", new_admin_lesson_path
 
 = form_for @lesson, url: admin_lessons_path(@lesson) do |f|
 	= render "shared/errors", object:f.object

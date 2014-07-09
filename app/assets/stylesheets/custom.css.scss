@@ -151,6 +151,18 @@ a {
 	}
 }
 
+// Forms
+.search-form {
+	float: right !important;
+	form {
+		margin-top: 3px;
+		margin-bottom: 0;
+		input {
+			margin-right: 3px;
+		}
+	}
+}
+
 // Footer
 footer {
 	height: 300px;
