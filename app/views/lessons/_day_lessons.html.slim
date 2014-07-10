@@ -1,0 +1,33 @@
+.center.row
+	.col-xs-3
+		= link_to day_path(day: (@current_week * 7 + @current_day - 1 - 7)), class: "btn btn-default" do
+			span.glyphicon.glyphicon-chevron-left
+	.col-xs-6
+		h3.fw300 = to_day @current_day
+		h4.fw100 
+			= @current_week
+			| - Неделя
+	.col-xs-3
+		= link_to day_path(day: (@current_week * 7 + @current_day + 1 - 7)), class: "btn btn-default" do
+			span.glyphicon.glyphicon-chevron-right
+
+ul class="list-group"
+	- @lessons.each do |lesson|
+		li class="list-group-item"
+			.row
+				.col-xs-1
+					span class="label"
+						= lesson.number
+				.col-xs-11
+					h3
+						= lesson.name
+					p 
+						span.glyphicon.glyphicon-time 
+						= to_time lesson.number
+					p	
+						span.glyphicon.glyphicon-map-marker
+						| А. 
+						= lesson.classroom
+					p	
+						span.glyphicon.glyphicon-pencil
+						= to_type(lesson.form)

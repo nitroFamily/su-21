@@ -163,6 +163,54 @@ a {
 	}
 }
 
+// Day lessons
+#lessons {
+	.center {
+		.col-xs-3 {
+			margin-top: 20px;
+			span {
+				margin: 10px 0;
+			}
+		}
+	}
+	.list-group {
+		li {
+			padding: 0 15px;
+			h3 {
+				font-weight: 300;
+			}
+			p {
+				display: inline-block;
+				margin-right: 15px;
+			}
+			span {
+				margin-right: 5px;
+			}
+			.col-xs-1 {
+				width: 15%;
+				padding: 0;
+				text-align: center;
+				span {
+					background-color: none !important;
+					color: $font-color;
+					margin: 30px 0;
+					display: inline-block;	
+					padding: 0;
+					width: 30px;
+					height: 30px;
+					border-radius: 100%;
+					border: 2px solid orange;
+					line-height: 26px;
+				}
+			}
+			.col-xs-11 {
+				width: 85%;
+				padding: 0;	
+			}
+		}
+	}
+}
+
 // Footer
 footer {
 	height: 300px;
