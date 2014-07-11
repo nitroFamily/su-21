@@ -15,12 +15,12 @@ class LessonsController < ApplicationController
 	private 
 		def get_week_and_day
 			day = params[:day].to_i
-			day = day == 0 || day > 18 * 7 ? Time.now.wday : day
+			day = day == 0 || day > 19 * 7 ? (what_week? * 7 + Time.now.wday) : day
 			diff = day.divmod 7
 			if diff[1] == 0
-				[what_week? + diff[0] - 1, 7]
+				[diff[0] - 1, 7]
 			else 
-				[what_week? + diff[0], day % 7]
+				diff
 			end
 		end
 end
