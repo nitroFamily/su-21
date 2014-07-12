@@ -18,3 +18,4 @@ gem 'slim-rails'
 gem 'devise'
 gem "font-awesome-rails"
 gem 'will_paginate-bootstrap'
+gem "rails-settings-cached", "0.3.1"
