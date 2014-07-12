@@ -5,8 +5,7 @@ Su21::Application.routes.draw do
   namespace :admin do
     match '/', to: 'dashboard#dashboard', via: 'get'
     resources :lessons
-    match '/settings', to: 'settings#index', via: 'get'
-    match '/settings/:id', to: 'settings#edit', via: 'get'
+    resources :settings, only:[:index, :edit, :update]
   end
 
   match 'day',  to: 'lessons#day',  via: 'get'
