@@ -1,6 +1,5 @@
 class Admin::SettingsController < Admin::AdminController
 	def index
-    # to get all items for render list
     @settings = Settings.unscoped
   end
 
