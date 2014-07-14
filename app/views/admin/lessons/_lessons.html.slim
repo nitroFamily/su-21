@@ -12,7 +12,7 @@ table.table.table-striped
 				td = lesson.day
 				td = lesson.number
 				td = lesson.name
-				td = type_by_num(lesson.form)
+				td = to_type(lesson.form)
 				td = "#{lesson.start_week} - #{lesson.end_week}" 
 				td 
 					= link_to edit_admin_lesson_path(lesson) do
