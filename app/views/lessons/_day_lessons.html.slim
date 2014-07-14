@@ -1,6 +1,6 @@
 .center.row
 	.col-xs-3
-		= link_to day_path(day: (@current_week * 7 + @current_day - 1)), class: "btn btn-default" do
+		= link_to day_path(prev_date(@current_week, @current_day)), class: "btn btn-default" do
 			span.glyphicon.glyphicon-chevron-left
 	.col-xs-6
 		h3.fw300 = to_day @current_day
@@ -8,11 +8,11 @@
 			= @current_week
 			| - Неделя
 	.col-xs-3
-		= link_to day_path(day: (@current_week * 7 + @current_day + 1)), class: "btn btn-default" do
+		= link_to day_path(next_date(@current_week, @current_day)), class: "btn btn-default" do
 			span.glyphicon.glyphicon-chevron-right
 
 ul class="list-group"
-	- @lessons.each do |lesson|
+	/ - @lessons.each do |lesson|
 		li class="list-group-item"
 			.row
 				.col-xs-1
@@ -31,3 +31,41 @@ ul class="list-group"
 					p	
 						span.glyphicon.glyphicon-pencil
 						= to_type(lesson.form)
+	- 5.times.each do |i|
+		- if @lessons.any? { |lesson| lesson.number == i + 1 }
+			- lesson = @lessons.find { |lesson| lesson.number == i + 1 }
+			li class="list-group-item"
+				.row
+					.col-xs-1
+						span class="label"
+							= lesson.number
+					.col-xs-11
+						h3
+							= lesson.name
+						p 
+							span.glyphicon.glyphicon-time 
+							= to_time lesson.number
+						p	
+							span.glyphicon.glyphicon-map-marker
+							| А. 
+							= lesson.classroom
+						p	
+							span.glyphicon.glyphicon-pencil
+							= to_type(lesson.form)
+		- else 
+			li class="list-group-item disabled"
+				.row
+					.col-xs-1
+						span class="label"
+							= i + 1
+					.col-xs-11
+						h3
+							| Пары нет
+						p 
+							span.glyphicon.glyphicon-time 
+							= to_time i + 1
+		- if i == 1
+			li.list-group-item.list-group-item-warning.center
+				h4.fw300 Обед
+
+

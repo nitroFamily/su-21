@@ -3,3 +3,5 @@
 	div
 		= setting.var
 		= setting.value
+		| Номер недели
+		= setting.value.to_datetime.strftime("%W").to_i 
