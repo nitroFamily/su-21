@@ -16,3 +16,10 @@
 //= require bootstrap
 //= require admin/lessons
 //= require lessons
+
+(function($) {
+  $(document).ready(function() {
+    $.slidebars();
+    $("#sb-site").addClass("gradient");
+  });
+}) (jQuery);

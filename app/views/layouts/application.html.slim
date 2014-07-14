@@ -1,11 +1,27 @@
 html
 	= render 'layouts/head'
 	body
-		= render 'layouts/navbar' unless action_name == "home"
+		nav class="navbar navbar-default" role="navigation"
+		  div
+		    div class="navbar-header"
+		      button type="button" class="navbar-toggle sb-toggle-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+		        span class="sr-only" Toggle navigation
+		        span class="icon-bar"
+		        span class="icon-bar"
+		        span class="icon-bar"
 
-		= yield
+		    div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"
+		      ul class="nav navbar-nav pull-left"
+		        li.sb-toggle-left.sb-css
+		        	i.fa.fa-bars.fa-2x
+		           
 
-		/ = render 'layouts/footer'
+		/ div.sb-toggle-left
+		/ 	i.fa.fa-bars.fa-2x
+		.sb-site
+			= yield
+
+		= render 'layouts/slidebar'
 
 		/ div class="container debug"
 			= debug(params) if Rails.env.development?
