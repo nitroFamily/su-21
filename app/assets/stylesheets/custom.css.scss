@@ -29,9 +29,9 @@
 }
 
 .sb-css {
+	position: relative;
 	border-radius: 4px;
 	border: 1px solid darken($font-color, 5%);
-	position: relative;
 	top: 15px;
 	left: 15px;
 	background-color: $font-color;
@@ -72,6 +72,7 @@
 				border-left: 3px solid $primary-color;
 			}
 			a {
+				font-weight: 300;
 			 	color: white;
 			 	border-radius: 0;
 				&:hover {
@@ -97,6 +98,14 @@
 			&:active {
 				color: $secondary-color;
 			}
+		}
+		hr {
+			border-color: $font-color;
+		}
+		p {
+			font-weight: 300;
+			margin-bottom: 0;
+			color: lighten($font-color, 10%);
 		}
 	}
 	#random-img {
@@ -264,6 +273,7 @@ a {
 
 // Day lessons
 #lessons {
+	margin-top: 75px;
 	.day-nav {
 		a {
 			-webkit-border-radius: 4px;
@@ -322,6 +332,107 @@ a {
 				width: 85%;
 				padding: 0;	
 			}
+		}
+		.miss {
+			margin-bottom: 20px;
+		}
+	}
+}
+
+// Week lessons 
+#week_lessons {
+	h1 {
+		margin-bottom: 20px;
+	}
+	table {
+	  display: block;
+		text-align: center;
+		font-size: 14px;
+		-webkit-border-radius: 4px;
+	 	-moz-border-radius: 4px;
+		border-radius: 4px;
+		-webkit-box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.2);
+		-moz-box-shadow:    0px 0px 10px 0px rgba(50, 50, 50, 0.2);
+		box-shadow:         0px 0px 10px 0px rgba(50, 50, 50, 0.2);
+		thead {
+			th {
+				&:first-child {
+					border-radius: 4px 0 0 0;
+				}
+				&:last-child {
+					border-radius: 0 4px 0 0;
+				}
+				text-align: center;
+				border-bottom: none;
+				background-color: rgba(255, 255, 255, 0.3);
+				font-size: 16px;
+				font-weight: 300;
+			}
+			.current {
+				background-color: rgba(255, 255, 255, 0.2);
+			}
+		}
+		tbody {
+			tr {
+				td {
+					border-right: 1px #dddddd solid;
+					background-color: #FFF;
+					padding: 0;
+					vertical-align: middle;
+					h3 {
+						font-weight: 100;
+						margin-top: 10px;
+					}
+					span {
+						margin-right: 5px;
+					}
+					&:last-child {
+						border-right: none;
+					}
+					&.legends {
+						background-color: rgba(255, 255, 255, 0.3);
+						border: none;
+						vertical-align: middle;
+						text-align: center;
+						font-size: 16px;
+						font-weight: 300;
+					}
+				}
+				&:first-child {
+					td {
+						border-top: none;
+					}
+				}
+				&:last-child {
+					td:first-child {
+						border-radius: 0 0 0 4px;
+					}
+					td:last-child {
+						border-radius: 0 0 4px 0;
+					}
+				}
+			}
+		}
+		.disabled {
+			background-color: #eeeeee;
+			color: #999999;
+		}
+	}
+	.pagination {
+		-webkit-box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.4);
+		-moz-box-shadow:    0px 0px 10px 0px rgba(50, 50, 50, 0.4);
+		box-shadow:         0px 0px 10px 0px rgba(50, 50, 50, 0.4);
+		.active {
+			a {
+				background-color: rgba(255, 255, 255, 0.1);
+				cursor: initial;
+				color: #FFF;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+			}
+		}
+		a {
+			font-weight: 300;
+			color: $font-color;
 		}
 	}
 }

@@ -9,7 +9,7 @@ namespace :db do
       							 day: "#{i%7+1}",
       							 start_week: 1,
       							 end_week: 18,
-      							 periodicity: 1)
+      							 periodicity: i%3+1)
 		end
 	end
 end

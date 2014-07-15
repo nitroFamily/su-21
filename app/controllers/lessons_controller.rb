@@ -1,21 +1,29 @@
 class LessonsController < ApplicationController
 	include LessonsHelper
-
+	before_action :set_day_info
+	
 	def day
-		@current_week = get_week_and_day[0] 
-		@current_day = get_week_and_day[1]
-		@lessons = Lesson.where("day = ? AND start_week <= ? AND end_week >= ?", @current_day, @current_week, @current_week)
-										 .order(number: :asc)
+		@lessons = Lesson.where("day = ? AND start_week <= ? AND end_week >= ? AND (periodicity == ? OR periodicity == 3)", 
+											@current_day, 
+											@current_week, 
+											@current_week,
+											@periodicity)
+											.order(number: :asc)
 	end
 
 	def week
-
+		@lessons = Lesson.where("start_week <= ? AND end_week >= ? AND (periodicity == ? OR periodicity == 3)",
+											@current_week,
+											@current_week,
+											@periodicity)
+											.order(number: :asc)
 	end
 
-	private 
-		def get_week_and_day
-			week = if params[:week].blank? then what_week? else params[:week].to_i end
-			day = if params[:day].blank? then Time.now.wday else params[:day].to_i end
-			[week, day]
+	private
+		def set_day_info
+			day_info = get_day_info
+			@current_week = day_info[0]
+			@current_day = day_info[1]
+			@periodicity = day_info[2]
 		end
 end

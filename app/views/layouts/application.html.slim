@@ -1,23 +1,10 @@
 html
 	= render 'layouts/head'
 	body
-		nav class="navbar navbar-default" role="navigation"
-		  div
-		    div class="navbar-header"
-		      button type="button" class="navbar-toggle sb-toggle-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-		        span class="sr-only" Toggle navigation
-		        span class="icon-bar"
-		        span class="icon-bar"
-		        span class="icon-bar"
+	
+		div.sb-toggle-left.sb-css
+			i.fa.fa-bars.fa-2x
 
-		    div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"
-		      ul class="nav navbar-nav pull-left"
-		        li.sb-toggle-left.sb-css
-		        	i.fa.fa-bars.fa-2x
-		           
-
-		/ div.sb-toggle-left
-		/ 	i.fa.fa-bars.fa-2x
 		.sb-site
 			= yield
 

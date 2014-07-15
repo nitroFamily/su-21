@@ -28,8 +28,8 @@
                                        ['Суббота', 6]], @lesson.day), required: true) 
 
 = f.label :periodicity, "Периодичность"
-= f.select(:periodicity, options_for_select([['Четная неделя', 1], 
-                                               ['Нечетная неделя', 2],
+= f.select(:periodicity, options_for_select([['Нечетная неделя', 1], 
+                                               ['Четная неделя', 2],
                                                ['Еженедельно', 3]], @lesson.periodicity), required: true) 
 
 = f.label :start_week, "Начальная неделя"

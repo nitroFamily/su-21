@@ -6,6 +6,8 @@
 			= link_to "Главная", root_path
 		li 
 			= link_to "День", day_path
+		li 
+			= link_to "Неделя", week_path
 
 	#random-img
 		.ann
@@ -15,6 +17,10 @@
 
 	.sb-footer
 		i class="fa fa-vk fa-lg"
-		i class="fa fa-envelope fa-lg"
+		i class="fa fa-envelope-o fa-lg"
+		i class="fa fa-github fa-lg"
+		hr
+		p
+			= "#{get_day_info[0]}-Неделя, #{to_day(get_day_info[1])}"
 
 '<script src="//cdnjs.cloudflare.com/ajax/libs/slidebars/0.9.4/slidebars.js"></script>

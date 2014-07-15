@@ -1,0 +1,48 @@
+.row
+	.col-xs-12		
+		h1.center.fw300 
+			= "#{@current_week}-Неделя"
+		table.table
+			thead
+				th
+				- 6.times do |i|
+					- if @current_day == i + 1 && @current_week == what_week?
+						th.current
+							= to_day(i + 1)
+					- else
+						th 
+							= to_day(i + 1)
+			tbody
+				- 5.times do |i|
+					tr
+						td.legends
+							p 
+								= i + 1
+						- 6.times do |j|
+							- if @lessons.any? {|lesson| lesson.number == i+1 && lesson.day == j+1}
+								td
+								 	- lesson = @lessons.find {|lesson| lesson.number == i+1 && lesson.day == j+1}
+									h3
+										= lesson.name
+									p
+										span.glyphicon.glyphicon-map-marker
+										= lesson.classroom
+									p
+										span.glyphicon.glyphicon-pencil
+										= to_type(lesson.form)
+									/ br
+									/ = "Пара-#{lesson.number}, #{to_day(lesson.day)}"
+							- else 
+								td.disabled
+									h3 Пары нет
+.row 
+	.col-xs-12.center
+		ul class="pagination"
+			- 18.times do |i|
+				- if i + 1 == what_week?
+					li.active
+						= link_to "#{i+1}", week_path(week: i + 1)
+				- else 
+					li
+						= link_to "#{i+1}", week_path(week: i + 1)
+										
