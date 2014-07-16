@@ -1,6 +1,14 @@
 - content_for(:page_header, "Редактирование")
 
-= form_for @lesson, url: admin_lesson_path(@lesson) do |f|
-	= render "shared/errors", object:f.object
-	= render "form", f:f
-	= f.submit "Обновить"
+ul.nav.nav-tabs
+	li 
+		= link_to "Все", admin_lessons_path
+	li
+		= link_to "Создать новую", new_admin_lesson_path
+
+.row
+	.col-md-5.col-md-offset-2
+		= form_for @lesson, url: admin_lesson_path(@lesson) do |f|
+			= render "shared/errors", object:f.object
+			= render "form", f:f
+			= f.submit "Обновить", class: "btn btn-default"

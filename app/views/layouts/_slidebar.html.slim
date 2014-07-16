@@ -8,12 +8,16 @@
 			= link_to "День", day_path
 		li 
 			= link_to "Неделя", week_path
+		- if signed_in?
+			li
+				= link_to "Админка", admin_path
 
 	#random-img
-		.ann
-			button type="button" class="btn btn-default" Котик для Ани
-		.oll
-			button type="button" class="btn btn-default" Попик для Оли
+		button type="button" class="btn btn-default" who="Ann" Котик для Ани
+		br
+		button type="button" class="btn btn-default" who="Olya" Попик для Оли
+		br
+		.photo
 
 	.sb-footer
 		i class="fa fa-vk fa-lg"
