@@ -18,46 +18,31 @@
 //= require TimeCircles
 //= require static_pages
 
-function stringToTime(string) {
-  var time = string.split("-");
-  for (var i = 0; i < time.length; i++) {
-    time[i] = time[i].trim().split(":");
-    var date = new Date;
-    date.setHours(parseInt(time[i][0]));
-    date.setMinutes(parseInt(time[i][1]));
-    time[i] = date;
-  };
-  return time;
-}
 
-function getLessonByTime(lessons, time) {
-  for (var i = 0; i < lessons.length; i++) {
-    var lessonTime = stringToTime(lessons[i].number);
-    if(time.getHours() >= lessonTime[0].getHours() && time.getHours() <= lessonTime[1].getHours()) {
-      return lessons[i];
-    } else {
-      continue;
-    }
-  }
-}
-
-function prepare_today() {
-  var time = new Date;
-  console.log(time.getHours());
+function prepareToday() {
   var dayUrl = "day.json"
   function displayLesson(data) {
     console.log(data);
-    if(time < stringToTime(data[0].number)[0]) {
-      console.log("Пары еще не начались");
-    } else {
-      console.log("Уже идут");
-      getLessonByTime(data, time);
+    $(".lesson-preview").prepend("<h5><a href='/day?week'>Сегодня " + data.length + " пары</a></h5><hr>");
+    $(".lesson-preview").append("<h5>С " + data[0].number.split("-")[0] + "</h5>");
+    lessonHTML = "<table>";
+    for (var i = 0; i < data.length; i++) {
+      lessonHTML += "<tr>";
+      lessonHTML += "<td>" + data[i].name + "</td>";
+      lessonHTML += "<td><span class='glyphicon glyphicon-time time'></span>" + data[i].number.split("-")[0] + "</td>";
+      lessonHTML += "<td><span class='glyphicon glyphicon-map-marker classroom'></span>" + data[i].classroom + "</td>";
+      lessonHTML += "<td><span class='glyphicon glyphicon-pencil type'></span>" + data[i].form + "</td>";
+      lessonHTML += "</tr>";
     }
-  }
+    lessonHTML += "</table>";
+    $(".lesson-preview").append(lessonHTML);
+    $(".lesson-preview").append("<h5>До " + data[data.length - 1].number.split("-")[1] + "</h5>");
+    $(".lesson-preview").fadeIn();
+  } // end displayLessons
   $.getJSON(dayUrl, displayLesson);
-}
+} // end prepareToday
 
-function prepare_tomorrow() {
+function prepareTomorrow() {
   var week = parseInt($(".lesson-preview").attr("week"));
   var day = parseInt($(".lesson-preview").attr("day"));
   if(day > 6) {
@@ -73,15 +58,24 @@ function prepare_tomorrow() {
   };
   function displayLesson(data) {
     console.log(data);
-    $(".lesson-preview h5").text("Первая пара завтра");
-    $(".lesson-preview h3").text(data[0].name);
-    $(".lesson-preview .time").after(data[0].number);
-    $(".lesson-preview .classroom").after(data[0].classroom);
-    $(".lesson-preview .type").after(data[0].form);
-    $(".lesson-preview").append("<h5><a href='/day?week=" + week + "&day=" + day +"'>Обзор дня</a></h5>");
-  }
+    $(".lesson-preview").prepend("<h5><a href='/day?week'>Завтра " + data.length + " пары</a></h5><hr>");
+    $(".lesson-preview").append("<h5>С " + data[0].number.split("-")[0] + "</h5>");
+    lessonHTML = "<table>";
+    for (var i = 0; i < data.length; i++) {
+      lessonHTML += "<tr>";
+      lessonHTML += "<td>" + data[i].name + "</td>";
+      lessonHTML += "<td><span class='glyphicon glyphicon-time time'></span>" + data[i].number.split("-")[0] + "</td>";
+      lessonHTML += "<td><span class='glyphicon glyphicon-map-marker classroom'></span>" + data[i].classroom + "</td>";
+      lessonHTML += "<td><span class='glyphicon glyphicon-pencil type'></span>" + data[i].form + "</td>";
+      lessonHTML += "</tr>";
+    }
+    lessonHTML += "</table>";
+    $(".lesson-preview").append(lessonHTML);
+    $(".lesson-preview").append("<h5>До " + data[data.length - 1].number.split("-")[1] + "</h5>");
+    $(".lesson-preview").fadeIn();
+  } // end displayLessons
   $.getJSON(dayUrl, dayData, displayLesson);
-}
+} // end prepareTomorrow;
 
 
 (function($) {
@@ -110,10 +104,10 @@ function prepare_tomorrow() {
    		$.getJSON(tumblrUrl, tumblrData, displayPhoto);
    	}); // end click
 
-    if((new Date).getHours() > 18) {
-      prepare_tomorrow();
+    if((new Date).getHours() >= 18) {
+      prepareTomorrow();
     } else {
-      prepare_today();
+      prepareToday();
     }
 
   }); // end ready

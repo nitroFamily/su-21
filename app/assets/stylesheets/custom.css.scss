@@ -153,7 +153,11 @@ a {
 // Home page styles
 #home {
 	padding-top: 20px;
+	@media screen and (max-width: 1200px) {
+		width: 100%;
+	}
 	.col-md-4 {
+		float: left;
 		-webkit-border-radius: 4px;
  		-moz-border-radius: 4px;
 	 	border-radius: 4px;
@@ -164,16 +168,28 @@ a {
 		width: 30%;
 		margin: 0 1.6%;
 		padding: 10px;
-		@media screen and (max-width: 700px) {
+		@media screen and (max-width: 950px) {
 			width: 97%;
 			margin: 10px 1.5%;
 		}
 	}
 	.lesson-preview {
+		display: none;
 		text-align: center;
+		table {
+			font-size: 14px;
+			width: 100%;
+			text-align: center;
+			td {
+				padding: 2px 0;
+			}
+		}
 		p {
 			display: inline-block;
 			margin-right: 10px;
+			&:last-child {
+				margin-right: 0;
+			}
 		}
 		span {
 			margin: 0 5px;
