@@ -1,5 +1,6 @@
 class Admin::SettingsController < Admin::AdminController
 	def index
+    vk = VkontakteApi::Client.new(session[:token])
     @settings = Settings.unscoped
     @user = vk.users.get(uid: session[:vk_id])
   end
