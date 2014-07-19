@@ -106,8 +106,10 @@ function prepareTomorrow() {
 
     if((new Date).getHours() >= 18) {
       prepareTomorrow();
+      console.log("Завтра");
     } else {
       prepareToday();
+      console.log("Сегодня");
     }
 
   }); // end ready

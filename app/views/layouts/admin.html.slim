@@ -16,6 +16,8 @@ html
 						  	= link_to "Dashboard", admin_path
 						  li class=("active" if params[:controller] == "admin/lessons")
 						  	= link_to "Пары", admin_lessons_path
+						  li class=("active" if params[:controller] == "admin/settings")
+						  	= link_to "Настройки", admin_settings_path
 
 					div.col-md-9
 						h1 
