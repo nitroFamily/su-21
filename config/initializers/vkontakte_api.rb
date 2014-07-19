@@ -1,11 +1,14 @@
 VkontakteApi.configure do |config|
   # Authorization parameters (not needed when using an external authorization):
-  config.app_id       = ENV['4467674']
-  config.app_secret   = ENV['U9b4WTIdi5PDM3akp6El']
-  config.redirect_uri = ENV['polar-cove-5623.herokuapp.com/admin/settings/callback']
+  config.app_id       = '4467674'
+  config.app_secret   = 'U9b4WTIdi5PDM3akp6El'
+  config.redirect_uri = 'http://polar-cove-5623.herokuapp.com/admin/settings/callback'
   
   # Faraday adapter to make requests with:
-  # config.adapter = :net_http
+  config.adapter = :net_http
+  
+  # HTTP verb for API methods (:get or :post)
+  config.http_verb = :get
   
   # Logging parameters:
   # log everything through the rails logger
@@ -20,3 +23,6 @@ VkontakteApi.configure do |config|
   # log response JSON after successful responses
   # config.log_responses = false
 end
+
+# create a short alias VK for VkontakteApi module
+# VkontakteApi.register_alias
