@@ -3,7 +3,7 @@ class LessonsController < ApplicationController
 	before_action :set_day_info
 	
 	def day
-		@lessons = Lesson.where("day = ? AND start_week <= ? AND end_week >= ? AND (periodicity == ? OR periodicity == 3)", 
+		@lessons = Lesson.where("day = ? AND start_week <= ? AND end_week >= ? AND (periodicity = ? OR periodicity = 3)", 
 											@current_day, 
 											@current_week, 
 											@current_week,
@@ -12,7 +12,7 @@ class LessonsController < ApplicationController
 	end
 
 	def week
-		@lessons = Lesson.where("start_week <= ? AND end_week >= ? AND (periodicity == ? OR periodicity == 3)",
+		@lessons = Lesson.where("start_week <= ? AND end_week >= ? AND (periodicity = ? OR periodicity = 3)",
 											@current_week,
 											@current_week,
 											@periodicity)
