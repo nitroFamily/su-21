@@ -1,6 +1,7 @@
 class Admin::SettingsController < Admin::AdminController
 	def index
     @settings = Settings.unscoped
+    @user = vk.users.get(uid: session[:vk_id])
   end
 
   def edit
