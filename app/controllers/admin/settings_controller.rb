@@ -2,7 +2,10 @@ class Admin::SettingsController < Admin::AdminController
 	def index
     vk = VkontakteApi::Client.new(session[:token])
     @settings = Settings.unscoped
-    @user = vk.users.get(uid: session[:vk_id])
+    if session[:vk_id]
+      @user = vk.users.get(uid: session[:vk_id])
+      @posts = vk.wall.get(fields: [])
+    end
   end
 
   def edit
@@ -16,7 +19,8 @@ class Admin::SettingsController < Admin::AdminController
     @setting.value = params[:settings][:value]
 
     if @setting.save
-      redirect_to admin_settings_path, notice: "Saved."
+      # redirect_to admin_settings_path, notice: "Saved."
+      flash.now[:success] = "Saved."
     else
       render "edit"
     end

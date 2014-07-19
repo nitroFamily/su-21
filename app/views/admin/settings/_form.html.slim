@@ -1,0 +1,6 @@
+= form_for object, url: admin_setting_path(object), remote: true, html: {class: "form-inline"} do |f|
+	div class="form-group"
+		= f.hidden_field :var, value: object.var
+		= f.label :value, object.var, class: "control-label"
+		= f.date_field :value, value: object.value, class: "form-control"
+	= f.submit "Обновить", class: "btn btn-default"

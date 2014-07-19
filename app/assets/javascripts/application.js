@@ -98,7 +98,7 @@ function prepareTomorrow() {
         tumblrData.tag = "butt";
    		}
    		function displayPhoto(data) {
-   			var photoHTML = "<img src='" + data.response.posts[0].photos[0].alt_sizes[2].url + "'>";
+   			var photoHTML = "<a href='" + data.response.posts[0].image_permalink + "' target='blank'><img src='" + data.response.posts[0].photos[0].alt_sizes[2].url + "'></a>";
    			$(".photo").html(photoHTML).fadeIn();
    		}
    		$.getJSON(tumblrUrl, tumblrData, displayPhoto);
