@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 gem 'rails', '4.0.2'
 gem 'sqlite3'
@@ -19,3 +20,4 @@ gem 'devise'
 gem "font-awesome-rails"
 gem 'will_paginate-bootstrap'
 gem "rails-settings-cached", "0.3.1"
+gem 'vkontakte_api', '~> 1.4'

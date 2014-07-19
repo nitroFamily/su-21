@@ -6,6 +6,8 @@ Su21::Application.routes.draw do
     match '/', to: 'dashboard#dashboard', via: 'get'
     resources :lessons
     resources :settings, only:[:index, :edit, :update]
+    match '/settings/vk_sign_up', to: 'vk_sessions#new', via: 'get'
+    match '/settings/callback', to: 'vk_sessions#callback', via: 'get'
   end
 
   match 'day',  to: 'lessons#day',  via: 'get'
