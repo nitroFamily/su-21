@@ -77,7 +77,6 @@ function prepareTomorrow() {
   $.getJSON(dayUrl, dayData, displayLesson);
 } // end prepareTomorrow;
 
-
 (function($) {
   $(document).ready(function() {
     $.slidebars();
@@ -111,6 +110,6 @@ function prepareTomorrow() {
       prepareToday();
       console.log("Сегодня");
     }
-
+    $.getScript("vk_posts", function(){ $(".posts-preview").fadeIn() });
   }); // end ready
 }) (jQuery);

@@ -9,24 +9,8 @@ div id="carousel-example-generic" class="carousel slide" data-ride="carousel"
 
 .container#home
 	.row
-		.col-md-4.lesson-preview week="#{get_day_info[0]}" day="#{get_day_info[1]}"
-			/ div class="progress"
-			/   div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"
-			/     | До конца осталось: 50 мин.
-			/ h5 Следующая пара
-			/ h3 Матан
-			/ p 
-			/ 	span.glyphicon.glyphicon-time 
-			/ 	= to_time 1
-			/ p	
-			/ 	span.glyphicon.glyphicon-map-marker
-			/ 	| А. 123/2
-			/ p	
-			/ 	span.glyphicon.glyphicon-pencil
-			/ 	= to_type(3)
-		.col-md-4
-			p
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi aspernatur, animi molestias nesciunt labore officia qui asperiores provident perferendis aliquid, illo at distinctio eveniet placeat delectus odio quam alias aliquam.
+		.col-md-4.preview.lesson-preview week="#{get_day_info[0]}" day="#{get_day_info[1]}"
+		.col-md-4.preview.posts-preview
 		.col-md-4
 			p
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi aspernatur, animi molestias nesciunt labore officia qui asperiores provident perferendis aliquid, illo at distinctio eveniet placeat delectus odio quam alias aliquam.

@@ -29,6 +29,16 @@ module ApplicationHelper
 	  end
 	end
 
+	def attachment_type_to_word(attach) 
+		case attach
+			when "link" then "Ссылка"
+	    when "doc" then "Файл"
+	    when "poll" then "Опрос"
+	    when "photo" then "Фото"
+	    else "Вложение"
+	  end
+	end
+
 	def sortable(column, title = nil)
 		title ||= column.titleize
 		direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"

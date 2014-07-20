@@ -10,15 +10,15 @@ class Admin::VkSessionsController < Admin::AdminController
     redirect_to admin_path, alert: 'Ошибка авторизации, попробуйте войти еще раз.' and return if session[:state].present? && session[:state] != params[:state]
     
     @vk = VkontakteApi.authorize(code: params[:code])
-    session[:token] = @vk.token
-    session[:vk_id] = @vk.user_id
+    Settings.token = @vk.token
+    Settings.vk_id = @vk.user_id
     
     redirect_to admin_path
   end
   
   def destroy
-    session[:token] = nil
-    session[:vk_id] = nil
+    Settings.token = nil
+    Settings.vk_id = nil
     
     redirect_to admin_path
   end

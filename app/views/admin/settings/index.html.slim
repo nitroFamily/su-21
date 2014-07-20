@@ -2,8 +2,7 @@
 
 .row
 	.col-md-12
-		- @settings.each do |setting|
-			= render "form", object:setting
+		= render "form", object:@date
 
 		= link_to "Вк", admin_settings_vk_sign_up_path
 		- if @user

@@ -1,0 +1,19 @@
+h5 
+	a href="#" Посты
+.list-group
+	- @posts.each do |post|
+		a href="https://vk.com/su_21?w=wall-42551290_#{post.id}" class="list-group-item" target="blank"
+			div class="media"
+				div.pull-left
+					img.img-circle src="#{post.user.photo}"
+				div class="media-body"
+					p 
+						= truncate(post.text.gsub(/<\/?br>/, " "), length: 60)	
+					p 
+						span.glyphicon.glyphicon-time 
+						= time_ago_in_words(Time.at(post.date)) + " ago"
+						- if post.attachments
+							i.fa.fa-file-o
+							= attachment_type_to_word post.attachments[0].type
+h5#next-posts 
+	= link_to "Еще", vk_posts_path(offset: params[:offset].to_i + 3), remote: true;

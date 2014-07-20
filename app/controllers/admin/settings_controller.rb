@@ -1,10 +1,9 @@
 class Admin::SettingsController < Admin::AdminController
 	def index
-    vk = VkontakteApi::Client.new(session[:token])
-    @settings = Settings.unscoped
-    if session[:vk_id]
-      @user = vk.users.get(uid: session[:vk_id])
-      @posts = vk.wall.get(fields: [])
+    @date = Settings.unscoped.find_by(var: "date")
+    vk = VkontakteApi::Client.new(Settings.token)
+    if Settings.vk_id
+      @user = vk.users.get(uid: Settings.vk_id)
     end
   end
 

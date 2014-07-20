@@ -23,7 +23,11 @@ module LessonsHelper
 
   def get_day_info
     week = params[:week].blank? ? what_week? : params[:week].to_i
-    day = params[:day].blank? ? Time.now.wday : params[:day].to_i
+    day = if params[:day].blank?
+      Time.now.wday == 0 ? 7 : Time.now.wday
+    else 
+      params[:day].to_i
+    end
     periodicity = week % 2 == 0 ? 2 : 1
     [week, day, periodicity]
   end
