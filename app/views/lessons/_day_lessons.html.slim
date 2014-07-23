@@ -55,7 +55,5 @@
 			li class="list-group-item disabled"
 				h3.miss.center Семестр закончился
 	- else
-		div#time-wrapper
-			h3 До начала семестра осталось
-			div id="time" data-date="#{Settings.date}"
+		= render "shared/time"
 

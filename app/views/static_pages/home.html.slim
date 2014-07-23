@@ -9,7 +9,12 @@ div id="carousel-example-generic" class="carousel slide" data-ride="carousel"
 
 .container#home
 	.row
-		.col-md-4.preview.lesson-preview week="#{get_day_info[0]}" day="#{get_day_info[1]}"
+		- if @lessons.empty?
+			.col-md-4.preview.lesson-preview.bgi
+				= render "shared/time"
+		- else
+			.col-md-4.preview.lesson-preview
+				= render "lessons"
 		.col-md-4.preview.posts-preview
 		.col-md-4
 			p

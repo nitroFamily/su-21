@@ -152,6 +152,11 @@ a {
 
 // Home page styles
 #home {
+	.bgi {
+		background-color: initial !important;
+		box-shadow: none !important;
+		padding: 0 !important;
+	}
 	padding-top: 10px;
 	padding-bottom: 10px;
 	@media screen and (max-width: 1200px) {
@@ -207,8 +212,10 @@ a {
 				margin-right: 0;
 			}
 		}
-		span {
-			margin: 0 5px;
+		td {
+			span {
+				margin: 0 5px;
+			}
 		}
 	}
 	.posts-preview {

@@ -1,5 +1,5 @@
 $('.posts-preview').html('<%= escape_javascript(render("static_pages/posts")) %>');
 $(".media").fadeIn();
-$("#next-posts").click(function(){
+$("#next-posts a[data-remote]").click(function(){
   $(".media").fadeOut();
 });

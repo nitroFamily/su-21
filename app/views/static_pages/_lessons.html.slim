@@ -1,0 +1,22 @@
+h5 
+	= link_to day_path(week: @current_week, day: @current_day) do
+		= @when_lessons
+hr
+h5
+	= "С #{to_time(@lessons[0].number).split("-")[0]}"
+table
+	- @lessons.each do |lesson|
+		tr
+			td 
+				= lesson.name
+			td 
+				span.glyphicon.glyphicon-time
+				= to_time(lesson.number).split("-")[0]
+			td 
+				span.glyphicon.glyphicon-map-marker
+				= lesson.classroom
+			td
+				span.glyphicon.glyphicon-pencil
+				= to_type lesson.form
+h5
+	= "До #{to_time(@lessons.last.number).split("-")[1]}"

@@ -4,6 +4,7 @@ VkontakteApi.configure do |config|
   config.app_secret   = 'U9b4WTIdi5PDM3akp6El'
   config.redirect_uri = 'http://localhost:3000/admin/settings/vk/callback'
   
+  
   # Faraday adapter to make requests with:
   config.adapter = :net_http
   

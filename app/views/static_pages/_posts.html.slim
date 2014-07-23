@@ -16,4 +16,16 @@ h5
 							i.fa.fa-file-o
 							= attachment_type_to_word post.attachments[0].type
 h5#next-posts 
-	= link_to "Еще", vk_posts_path(offset: params[:offset].to_i + 3), remote: true;
+	div class="btn-group"
+		- if params[:offset].nil? || params[:offset].to_i == 0
+			= link_to vk_posts_path(offset: params[:offset].to_i - 3), class: "btn btn-default", disabled: "disabled" do
+				span.glyphicon.glyphicon-chevron-left
+		- else
+			= link_to vk_posts_path(offset: params[:offset].to_i - 3), remote: true, class: "btn btn-default" do
+				span.glyphicon.glyphicon-chevron-left
+		= link_to vk_posts_path(offset: params[:offset].to_i + 3), remote: true, class: "btn btn-default" do
+			span.glyphicon.glyphicon-chevron-right
+		
+			
+		
+			

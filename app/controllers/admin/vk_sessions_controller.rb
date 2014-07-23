@@ -3,7 +3,7 @@ class Admin::VkSessionsController < Admin::AdminController
     srand
     session[:state] ||= Digest::MD5.hexdigest(rand.to_s)
     
-    @vk_url = VkontakteApi.authorization_url(scope: [:groups], state: session[:state])
+    @vk_url = VkontakteApi.authorization_url(scope: [:offline, :groups], state: session[:state])
   end
   
   def callback
@@ -12,6 +12,7 @@ class Admin::VkSessionsController < Admin::AdminController
     @vk = VkontakteApi.authorize(code: params[:code])
     Settings.token = @vk.token
     Settings.vk_id = @vk.user_id
+    # Settings.expires_in = @vk.expires_in
     
     redirect_to admin_path
   end

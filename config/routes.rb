@@ -6,14 +6,14 @@ Su21::Application.routes.draw do
     match '/', to: 'dashboard#dashboard', via: 'get'
     resources :lessons
     resources :settings, only:[:index, :edit, :update]
-    match '/settings/vk/sign_up', to: 'vk_sessions#new', via: 'get'
+    match '/settings/vk/sign_up',  to: 'vk_sessions#new', via: 'get'
     match '/settings/vk/callback', to: 'vk_sessions#callback', via: 'get'
-    match '/settings/vk/destroy', to: 'vk_sessions#destroy', via: 'delete'
+    match '/settings/vk/destroy',  to: 'vk_sessions#destroy', via: 'delete'
   end
 
   match 'day',  to: 'lessons#day',  via: 'get'
   match 'week', to: 'lessons#week', via: 'get'
-  match 'vk_posts', to: 'posts#vk_posts', via: 'get'
+  match 'vk_posts', to: 'posts#vk_posts', via: 'get', constraints: { format: /(js|json)/ }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
