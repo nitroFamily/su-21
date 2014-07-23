@@ -6,49 +6,52 @@
 		h3.fw300 = to_day @current_day
 		h4.fw100 
 			= @current_week
-			| - Неделя
+			|  - Неделя
 	.col-xs-3
 		= link_to day_path(next_date(@current_week, @current_day)), class: "btn btn-default" do
 			span.glyphicon.glyphicon-chevron-right
 
 - if @lessons.any?
-	ul class="list-group"
-		- 5.times do |i|
-			- if @lessons.any? { |lesson| lesson.number == i + 1 }
-				- lesson = @lessons.find { |lesson| lesson.number == i + 1 }
-				li class="list-group-item"
-					.row
-						.col-xs-1
-							span class="label"
-								= lesson.number
-						.col-xs-11
-							h3
-								= lesson.name
-							p 
-								span.glyphicon.glyphicon-time 
-								= to_time lesson.number
-							p	
-								span.glyphicon.glyphicon-map-marker
-								| А. 
-								= lesson.classroom
-							p	
-								span.glyphicon.glyphicon-pencil
-								= to_type(lesson.form)
-			- else 
-				li class="list-group-item disabled"
-					.row
-						.col-xs-1
-							span class="label"
-								= i + 1
-						.col-xs-11
-							h3
-								| Пары нет
-							p 
-								span.glyphicon.glyphicon-time 
-								= to_time i + 1
-			- if i == 1
-				li.list-group-item.list-group-item-warning.center
-					h4.fw300 Обед
+	#list-group-wrapper
+		#fa-spin-wrapper
+			i.fa.fa-spinner.fa-spin.fa-2x
+		ul class="list-group"
+			- 5.times do |i|
+				- if @lessons.any? { |lesson| lesson.number == i + 1 }
+					- lesson = @lessons.find { |lesson| lesson.number == i + 1 }
+					li class="list-group-item"
+						.row
+							.col-xs-1
+								span class="label"
+									= lesson.number
+							.col-xs-11
+								h3
+									= lesson.name
+								p 
+									span.glyphicon.glyphicon-time 
+									= to_time lesson.number
+								p	
+									span.glyphicon.glyphicon-map-marker
+									| А. 
+									= lesson.classroom
+								p	
+									span.glyphicon.glyphicon-pencil
+									= to_type(lesson.form)
+				- else 
+					li class="list-group-item disabled"
+						.row
+							.col-xs-1
+								span class="label"
+									= i + 1
+							.col-xs-11
+								h3
+									| Пары нет
+								p 
+									span.glyphicon.glyphicon-time 
+									= to_time i + 1
+				- if i == 1
+					li.list-group-item.list-group-item-warning.center
+						h4.fw300 Обед
 - else 
 	- if @current_week > 18
 		ul class="list-group"

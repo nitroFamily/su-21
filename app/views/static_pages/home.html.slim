@@ -1,4 +1,4 @@
-div id="carousel-example-generic" class="carousel slide" data-ride="carousel"
+/ div id="carousel-example-generic" class="carousel slide" data-ride="carousel"
 	ol class="carousel-indicators"
 	  li data-target="#carousel-example-generic" data-slide-to="0" class="active"
 	div class="carousel-inner"
@@ -16,6 +16,17 @@ div id="carousel-example-generic" class="carousel slide" data-ride="carousel"
 			.col-md-4.preview.lesson-preview
 				= render "lessons"
 		.col-md-4.preview.posts-preview
+			h5 
+				a href="#" Посты
+			#list-group-wrapper
+				#fa-spin-wrapper
+					i.fa.fa-spinner.fa-spin.fa-2x
+			#posts-nav
+				div class="btn-group center"
+					= link_to vk_posts_path, class: "btn btn-default", disabled: "disabled" do
+						span.glyphicon.glyphicon-chevron-left
+					= link_to vk_posts_path, class: "btn btn-default", disabled: "disabled" do
+						span.glyphicon.glyphicon-chevron-right
 		.col-md-4
 			p
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi aspernatur, animi molestias nesciunt labore officia qui asperiores provident perferendis aliquid, illo at distinctio eveniet placeat delectus odio quam alias aliquam.

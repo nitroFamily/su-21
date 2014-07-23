@@ -14,4 +14,8 @@ class PostsController < ApplicationController
       end
     end
 	end
+
+  def index
+
+  end
 end

@@ -45,7 +45,19 @@
    	}); // end click
 
     $(".lesson-preview").fadeIn();
-    $.getScript("vk_posts", function(){ $(".posts-preview").fadeIn() });
+    $(".posts-preview #fa-spin-wrapper").show();
+    $.getScript("vk_posts");
+
+    $("#lessons .list-group").show();
+    $("#lessons").on('click', '.day-nav a', function(){
+      $(".list-group").fadeOut(400, function(){
+        $("#fa-spin-wrapper").show();
+      });
+    });
     
+    $("#week_lessons").on('click', '.pagination a', function(){
+      $("#fa-spin-wrapper").show();
+    });
+
   }); // end ready
 }) (jQuery);

@@ -1,5 +1,7 @@
 $('.posts-preview').html('<%= escape_javascript(render("static_pages/posts")) %>');
-$(".media").fadeIn();
-$("#next-posts a[data-remote]").click(function(){
-  $(".media").fadeOut();
+$(".posts-preview .list-group").fadeIn(400);
+$("#posts-nav a[data-remote]").click(function(){
+  $(".list-group").fadeOut(400, function(){
+  	$("#fa-spin-wrapper").show();
+  });
 });
