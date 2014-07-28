@@ -1,0 +1,19 @@
+table.table.table-striped
+	thead
+		th = sortable "title"
+		th = sortable "text"
+		th = sortable "updated_at"
+		th Действия
+	tbody
+		- @posts.each do |post|
+			tr id="#{post.id}"
+				td = post.title
+				td = truncate(post.text, length: 80)
+				td = "#{time_ago_in_words(post.updated_at)} ago"
+				td
+					= link_to edit_admin_post_path(post) do
+						span.glyphicon.glyphicon-edit
+					= link_to admin_post_path(post), method: :delete, remote: true do
+						span.glyphicon.glyphicon-remove
+
+= will_paginate @posts, renderer: BootstrapPagination::Rails 

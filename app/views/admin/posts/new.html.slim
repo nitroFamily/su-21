@@ -1,0 +1,13 @@
+- content_for(:page_header, "Новый пост")
+ul.nav.nav-tabs
+	li 
+		= link_to "Все", admin_posts_path
+	li.active 
+		= link_to "Создать новый", new_admin_post_path
+
+.row
+	.col-md-5.col-md-offset-2
+		= form_for @post, url: admin_posts_path(@post) do |f|
+			= render "shared/errors", object:f.object
+			= render "form", f:f
+			= f.submit "Создать", class: "btn btn-default"

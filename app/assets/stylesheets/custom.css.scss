@@ -457,7 +457,7 @@ a {
 // Week lessons 
 #week_lessons {
 	#fa-spin-wrapper {
-		color: lighten($font-color, 50%);
+		color: $primary-color;
 		display: none;
 		position: absolute;
 		top: 50%;
@@ -467,13 +467,16 @@ a {
 	}
 	height: 100%;
 	.disabled {
-		background-color: #eeeeee;
 		color: #999999;
 	}
 	h1 {
 		margin-bottom: 20px;
 	}
 	table {
+		.disabled {
+			background-color: #eeeeee;
+			color: #999999;
+		}
 	  display: block;
 		text-align: center;
 		font-size: 14px;
