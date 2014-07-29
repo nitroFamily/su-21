@@ -1,0 +1,26 @@
+#time-wrapper {
+	text-align: center;
+	padding-top: 1px;
+	border-radius: 4px;
+	background-color: rgba(51,51,51, 0.7);
+	@include shadow;
+	color: #FFA169;
+	span {
+		font-size: 100% !important;
+	}
+	h4 {
+		font-size: 65%;
+		font-weight: 100;
+	}
+	h3 {
+		font-weight: 100;
+		font-size: 14px;
+		margin: 5px 0;
+		color: #ffa325;
+	}
+	#time {
+		margin: 0 auto;
+		width: 270px;
+		height: 90px;
+	}
+} // end #time-wrapper

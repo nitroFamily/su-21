@@ -24,5 +24,6 @@ class StaticPagesController < ApplicationController
 											@current_week,
 											periodicity)
 											.order(number: :asc)
+		@posts = Post.order(updated_at: :desc).limit(3)
 	end
 end

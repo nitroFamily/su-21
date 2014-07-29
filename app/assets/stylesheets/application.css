@@ -11,6 +11,6 @@
  *= require_self
  *= require font-awesome
  *= require slidebars
- *= require custom
- *= require TimeCircles
+ *= require TimeCircles	
+ *= require main
  */

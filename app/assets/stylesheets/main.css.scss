@@ -1,0 +1,25 @@
+// Modules and Variables
+@import "partials/base";
+
+// Partials
+@import "partials/slidebar";
+@import "partials/typography";
+@import "partials/home-page";
+@import "partials/preview";
+@import "partials/gradient";
+@import "partials/timer";
+@import "partials/day-lessons";
+@import "partials/week-lessons";
+@import "partials/admin-pages";
+
+
+// Other
+.sb-site {
+	padding-top: 15px;
+}
+
+#epiceditor {
+	iframe {
+		border-radius: 4px;
+	}
+}

@@ -6,7 +6,7 @@ ul.nav.nav-tabs
 		= link_to "Создать новый", new_admin_post_path
 
 .row
-	.col-md-5.col-md-offset-2
+	.col-md-12
 		= form_for @post, url: admin_post_path(@post) do |f|
 			= render "shared/errors", object:f.object
 			= render "form", f:f

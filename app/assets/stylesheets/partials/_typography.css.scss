@@ -1,0 +1,16 @@
+a {
+	color: orange;
+	@include css-transition(0.25s);
+	&:hover {
+		color: #333333;
+	}
+} // end a
+
+#fa-spin-wrapper {
+	color: lighten($font-color, 50%);
+	text-align: center;
+	display: none;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+} // end #fa-spin-wrapper

@@ -1,34 +1,24 @@
 h5 
-	a href="#" Посты
+	= link_to "Посты", posts_path
 #list-group-wrapper
 	#fa-spin-wrapper
 		i.fa.fa-spinner.fa-spin.fa-2x
 	.list-group
 		- @posts.each do |post|
-			a href="https://vk.com/su_21?w=wall-42551290_#{post.id}" class="list-group-item" target="blank"
-				div class="media"
-					div.pull-left
-						img.img-circle src="#{post.user.photo}"
-					div class="media-body"
-						p 
-							= truncate(post.text.gsub(/<\/?br>/, " "), length: 60)	
-						p 
-							span.glyphicon.glyphicon-time 
-							= time_ago_in_words(Time.at(post.date)) + " ago"
-							- if post.attachments
-								i.fa.fa-file-o
-								= attachment_type_to_word post.attachments[0].type
-#posts-nav								
-	div class="btn-group"
+			.list-group-item
+				h3 
+					= link_to post.title, post_path(post)
+				p = truncate(post.text.gsub(/(-+)|(`+)|(#+)/," ") , length: 80)
+				p	
+					span.glyphicon.glyphicon-time 
+					= "#{time_ago_in_words(post.updated_at)} ago"
+#posts-nav
+	div class="btn-group center"
 		- if params[:offset].nil? || params[:offset].to_i == 0
-			= link_to vk_posts_path(offset: params[:offset].to_i - 3), class: "btn btn-default", disabled: "disabled" do
+			= link_to posts_preview_path(offset: params[:offset].to_i - 3, limit: 3), class: "btn btn-default", disabled: "disabled" do
 				span.glyphicon.glyphicon-chevron-left
 		- else
-			= link_to vk_posts_path(offset: params[:offset].to_i - 3), remote: true, class: "btn btn-default" do
+			= link_to posts_preview_path(offset: params[:offset].to_i - 3, limit: 3), remote: true, class: "btn btn-default" do
 				span.glyphicon.glyphicon-chevron-left
-		= link_to vk_posts_path(offset: params[:offset].to_i + 3), remote: true, class: "btn btn-default" do
+		= link_to posts_preview_path(offset: params[:offset].to_i + 3, limit: 3), remote: true, class: "btn btn-default" do
 			span.glyphicon.glyphicon-chevron-right
-		
-			
-		
-			

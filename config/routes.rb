@@ -16,7 +16,8 @@ Su21::Application.routes.draw do
   match 'week', to: 'lessons#week', via: 'get'
   match 'vk_posts', to: 'posts#vk_posts', via: 'get', constraints: { format: /(js|json)/ }
 
-  match 'posts', to: 'posts#index', via: 'get'
+  resources :posts, only:[:index, :show]
+  match 'posts_preview', to: 'posts#posts_preview', via: 'get', constraints: { format: /(js|json)/ }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

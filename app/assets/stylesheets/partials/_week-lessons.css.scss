@@ -1,0 +1,102 @@
+#week_lessons {
+	height: 100%;
+	#fa-spin-wrapper {
+		color: $primary-color;
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateY(-50%);
+		z-index: 1;
+	}
+	h1 {
+		margin-bottom: 20px;
+	}
+	table {
+		.disabled {
+			background-color: #eeeeee;
+			color: #999999;
+		}
+	  display: block;
+		text-align: center;
+		font-size: 14px;
+		@include border-radius(4px);
+		@include shadow;
+		thead {
+			th {
+				&:first-child {
+					border-radius: 4px 0 0 0;
+				}
+				&:last-child {
+					border-radius: 0 4px 0 0;
+				}
+				text-align: center;
+				border-bottom: none;
+				background-color: rgba(255, 255, 255, 0.3);
+				font-size: 16px;
+				font-weight: 300;
+			}
+			.current {
+				background-color: rgba(255, 255, 255, 0.2);
+			}
+		} // end thead
+		tbody {
+			tr {
+				td {
+					border-right: 1px #dddddd solid;
+					background-color: #FFF;
+					padding: 0;
+					vertical-align: middle;
+					h3 {
+						font-weight: 100;
+						margin-top: 10px;
+					}
+					span {
+						margin-right: 5px;
+					}
+					&:last-child {
+						border-right: none;
+					}
+					&.legends {
+						background-color: rgba(255, 255, 255, 0.3);
+						border: none;
+						@include align-center;
+						font-size: 16px;
+						font-weight: 300;
+						p {
+							margin: 0;
+						}
+					}
+				} // end td
+				&:first-child {
+					td {
+						border-top: none;
+					}
+				}
+				&:last-child {
+					td:first-child {
+						border-radius: 0 0 0 4px;
+					}
+					td:last-child {
+						border-radius: 0 0 4px 0;
+					}
+				}
+			} // end tr
+		} // end tbody
+	} // end table
+	.pagination {
+		@include shadow;
+		.active {
+			a {
+				background-color: rgba(255, 255, 255, 0.1);
+				cursor: initial;
+				color: #FFF;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+			}
+		}
+		a {
+			font-weight: 300;
+			color: $font-color;
+		}
+	} // end .pagination
+} // end #week_lessons

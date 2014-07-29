@@ -1,0 +1,23 @@
+#home {
+	.bgi {
+		background-color: initial !important;
+		box-shadow: none !important;
+		padding: 0 !important;
+	}
+	@media screen and (max-width: 1200px) {
+		width: 100%;
+	}
+	.col-md-4 {
+		float: left;
+	 	@include border-radius(4px);
+	 	@include shadow;
+		background-color: #FFF;
+		width: 30%;
+		margin: 0 1.6%;
+		padding: 10px;
+		@media screen and (max-width: 950px) {
+			width: 97%;
+			margin: 10px 1.5%;
+		}
+	}
+}

@@ -16,6 +16,14 @@ class PostsController < ApplicationController
 	end
 
   def index
-
+    @posts = Post.all.order(updated_at: :desc)
   end
-end
+
+  def show 
+    @post = Post.find(params[:id])
+  end
+
+  def posts_preview
+    @posts = Post.offset(params[:offset]).order(updated_at: :desc).limit(params[:limit])
+  end
+end 

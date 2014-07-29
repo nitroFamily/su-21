@@ -1,0 +1,45 @@
+#admin,#posts {
+	.container {
+		padding: 10px;
+		background-color: #FFF;
+		@include border-radius(4px);
+		@include shadow;
+	}
+	.nav-pills {
+		li.active {
+			a {
+				background-color: $primary-color;
+				color: #FFF;
+			}
+		}
+	}
+	.pagination {
+		.active {
+			span {
+				background-color: $primary-color;
+				border-color: $primary-color;
+				cursor: initial;
+				color: #FFF;
+			}
+		}
+		li {
+			a {
+				color: lighten($font-color, 10%);
+			}
+		}
+	} // end .pagination
+	form {
+		margin-top: 10px;
+		text-align: center;
+	}
+	.search-form {
+		float: right !important;
+		form {
+			margin-top: 0;
+			margin-bottom: 0;
+			input {
+				margin-right: 3px;
+			}
+		}
+	} // end .search-form
+} // end #admin

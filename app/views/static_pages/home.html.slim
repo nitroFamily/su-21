@@ -1,12 +1,3 @@
-/ div id="carousel-example-generic" class="carousel slide" data-ride="carousel"
-	ol class="carousel-indicators"
-	  li data-target="#carousel-example-generic" data-slide-to="0" class="active"
-	div class="carousel-inner"
-	  div class="item active"
-	    img src="http://www.speedhunters.com/wp-content/uploads/2014/07/Le_Mans_Classic_2014-041.jpg"
-	    div class="carousel-caption"
-
-
 .container#home
 	.row
 		- if @lessons.empty?
@@ -15,9 +6,9 @@
 		- else
 			.col-md-4.preview.lesson-preview
 				= render "lessons"
-		.col-md-4.preview.posts-preview
+		.col-md-4.preview.vk-preview
 			h5 
-				a href="#" Посты
+				a href="#" Вк feed
 			#list-group-wrapper
 				#fa-spin-wrapper
 					i.fa.fa-spinner.fa-spin.fa-2x
@@ -27,6 +18,6 @@
 						span.glyphicon.glyphicon-chevron-left
 					= link_to vk_posts_path, class: "btn btn-default", disabled: "disabled" do
 						span.glyphicon.glyphicon-chevron-right
-		.col-md-4
-			p
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi aspernatur, animi molestias nesciunt labore officia qui asperiores provident perferendis aliquid, illo at distinctio eveniet placeat delectus odio quam alias aliquam.
+		- unless @posts.empty?
+			.col-md-4.preview.posts-preview
+				= render "posts"

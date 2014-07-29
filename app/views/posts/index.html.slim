@@ -1,7 +1,13 @@
 #posts
 	.container
 		.row
-			.col-md-4
-			.col-md-8
-				p 
-					|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius nostrum, veniam. Nobis culpa blanditiis recusandae eaque dolorum odio facilis necessitatibus facere rerum maxime! Animi facilis voluptatem sint optio, natus magni.
+			- @posts.each do |post|
+				.col-md-3
+					h1 
+						= link_to post.title, post_path(post)
+					p = truncate(post.text.gsub(/(-+)|(`+)|(#+)/," "), length: 200)
+					p 
+						= link_to " Читать", post_path(post)
+						|  | 
+						= "#{time_ago_in_words(post.updated_at)} ago"
+					hr

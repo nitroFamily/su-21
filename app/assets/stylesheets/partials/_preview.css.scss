@@ -1,0 +1,121 @@
+.preview {
+	h3, h5 {
+		font-weight: 300;
+	}
+	h3 {
+		margin-top: 10px;
+	}
+	h5 {
+		text-align: center;
+		color: lighten($font-color, 50%);
+	}
+	#posts-nav {
+		text-align: center;
+		margin: 20px 0;
+	}
+} // end .preview
+
+.lesson-preview {
+	display: none;
+	text-align: center;
+	table {
+		font-size: 14px;
+		width: 100%;
+		text-align: center;
+		td {
+			padding: 2px 0;
+			&:nth-child(2),&:nth-child(3),&:nth-child(4) {
+				text-align: left;
+			}
+		}
+	} // end table
+	p {
+		display: inline-block;
+		margin-right: 10px;
+		&:last-child {
+			margin-right: 0;
+		}
+	} 
+	td {
+		span {
+			margin: 0 5px;
+		}
+	}
+} // end .lessons-preview
+
+.vk-preview, .posts-preview {
+	padding: 0 !important;
+	.media {
+		height: 62px;
+	}
+	padding: 0;
+	h5 {
+		margin: 20px 0;
+	}
+	#list-group-wrapper {
+		height: 250px;
+	}
+	.list-group {
+		display: none;
+		box-shadow: none;
+		margin-bottom: 0;
+		.list-group-item {
+			border-right: none;
+			border-left: none;
+			&:first-child, &:last-child {
+				border-radius: 0;
+			}
+		}
+	} // end .list-group
+	.pull-left{
+		height: 100%;
+		img {
+			width: 50px;
+			height: 50px;
+			margin: 5px auto;
+		}
+	}
+	.media-body {
+		p {
+			margin-bottom: 0;
+			&:last-child {
+				margin-top: 4px;
+				font-size: 12px;
+				color: lighten($font-color, 50%);
+				span {
+					margin-right: 5px;
+				}
+				i {
+					margin: 0 5px 0 10px;
+				}
+			}
+		}
+	} // end .media-body
+} // end .vk-preview
+
+.posts-preview {
+	.list-group {
+		.list-group-item {
+			h3 {
+				text-align: center;
+				font-weight: 100 !important;
+				margin: 0 0 5px 0 !important;
+			}
+			p {
+				margin: 0 0 5px 0 !important;
+			}
+			p:last-child {
+				margin: 0;
+				text-align: center;
+				span {
+					margin-right: 5px;
+				}
+				color: lighten($font-color, 50%);
+				font-size: 12px;
+			}
+		} // end .list-group-item
+	} // end .list-group
+	#list-group-wrapper {
+		height: 360px !important;
+	}
+} // end .posts-preview

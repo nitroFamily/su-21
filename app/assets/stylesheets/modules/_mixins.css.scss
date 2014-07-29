@@ -1,0 +1,33 @@
+@mixin css-transition($delay) {
+	-webkit-transition: $delay all ease;
+	-moz-transition:    $delay all ease;
+	-ms-transition:     $delay all ease;
+	-o-transition:      $delay all ease;
+	transition:   		  $delay all ease;
+}
+
+@mixin css-transform($transform) {
+	-webkit-transform: $transform;
+	-moz-transform:    $transform;
+	-ms-transform:     $transform;
+	-o-transform:      $transform;
+	transform:         $transform;
+}
+
+@mixin align-center {
+	display: table-cell;
+ 	text-align: center;
+ 	vertical-align: middle;
+}
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius:    $radius;
+	border-radius:         $radius;
+}
+
+@mixin shadow {
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.4);
+	-moz-box-shadow:    0px 0px 10px 0px rgba(50, 50, 50, 0.4);
+	box-shadow:         0px 0px 10px 0px rgba(50, 50, 50, 0.4);
+}

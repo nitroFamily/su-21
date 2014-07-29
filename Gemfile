@@ -24,6 +24,7 @@ gem "font-awesome-rails"
 gem 'will_paginate-bootstrap'
 gem "rails-settings-cached", "0.3.1"
 gem 'vkontakte_api', '~> 1.4'
+gem 'redcarpet'
 
 
 group :production do
