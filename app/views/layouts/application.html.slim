@@ -9,18 +9,3 @@ html
 			= yield
 
 		= render 'layouts/slidebar'
-
-		/ div class="container debug"
-			= debug(params) if Rails.env.development?
-			pre
-				| what_week? = 
-				= what_week?
-				br
-				| current_week = 
-				= Time.now.strftime("%W").to_i
-				br
-				| start_week = 
-				= Settings.date.to_datetime.strftime("%W").to_i
-				br 
-				| current_week - start_week = 
-				= Time.now.strftime("%W").to_i - Settings.date.to_datetime.strftime("%W").to_i

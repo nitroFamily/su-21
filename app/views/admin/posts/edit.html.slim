@@ -1,4 +1,8 @@
 - content_for(:page_header, "Редактирование")
+- content_for(:head) do
+	= javascript_include_tag "epic/epiceditor"
+	= javascript_include_tag "epic/epiceditor_options" 
+	
 ul.nav.nav-tabs
 	li 
 		= link_to "Все", admin_posts_path
