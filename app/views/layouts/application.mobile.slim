@@ -1,0 +1,16 @@
+html
+	head
+	  title Ratchet
+	  meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+		link rel="stylesheet" href="//cdn.jsdelivr.net/ratchet/2.0.2/css/ratchet-theme-ios.min.css"
+		link rel="stylesheet" href="//cdn.jsdelivr.net/ratchet/2.0.2/css/ratchet.min.css"
+		script src="//cdn.jsdelivr.net/ratchet/2.0.2/js/ratchet.min.js"
+		= stylesheet_link_tag  "mobile", media: "all", "data-turbolinks-track" => true 
+		= csrf_meta_tags
+	body
+		header class="bar bar-nav"
+			= yield :header
+		.content
+			= yield
+		= render "shared/mobile_bar_tab"
+		

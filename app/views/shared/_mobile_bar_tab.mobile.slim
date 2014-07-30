@@ -1,0 +1,13 @@
+nav class="bar bar-tab"
+	= link_to day_path, class: "tab-item #{'active' if params[:action] == 'day'}", "data-transition"=>"fade" do
+		span class="icon fa fa-list-alt"
+		span class="tab-label" 
+			| День
+	= link_to week_path, class: "tab-item #{'active' if params[:action] == 'week'}", "data-transition"=>"fade" do
+		span class="icon fa fa-table"
+		span class="tab-label" 
+			| Неделя
+	= link_to posts_path, class: "tab-item #{'active' if params[:action] == 'index'}", "data-transition"=>"fade" do
+		span class="icon icon-pages"
+		span class="tab-label" 
+			| Посты

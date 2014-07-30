@@ -1,0 +1,36 @@
+- content_for(:header) do
+	h1 class="title"
+		= "#{to_day @current_day}, #{@current_week} - Неделя"
+	= link_to " ", day_path(prev_date(@current_week, @current_day)), class: "icon icon-left-nav pull-left", "data-transition"=>"fade"
+	= link_to " ", day_path(next_date(@current_week, @current_day)), class: "icon icon-right-nav pull-right", "data-transition"=>"fade"
+
+ul class="table-view"
+	- 5.times do |i|
+		- if @lessons.any? { |lesson| lesson.number == i + 1 }
+			- lesson = @lessons.find { |lesson| lesson.number == i + 1 }
+			li class="table-view-cell row"
+				.lesson-number
+					.wrapper 
+						span = i + 1
+				.lesson-content
+					= lesson.name
+					p
+						i.fa.fa-clock-o
+						= to_time i + 1
+						i.fa.fa-map-marker
+						= lesson.classroom
+				.lesson-type
+					.wrapper
+						span class="badge" = to_type lesson.form
+		- else 
+			li class="table-view-cell row disabled"
+				.lesson-number
+					.wrapper 
+						span = i + 1
+				.lesson-content
+					| Пары нет
+					p
+						i.fa.fa-clock-o
+						= to_time i + 1
+		- if i == 1
+			li class="table-view-divider" Обед

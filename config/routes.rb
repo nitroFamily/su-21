@@ -14,7 +14,7 @@ Su21::Application.routes.draw do
 
   match 'day',  to: 'lessons#day',  via: 'get'
   match 'week', to: 'lessons#week', via: 'get'
-  match 'vk_posts', to: 'posts#vk_posts', via: 'get', constraints: { format: /(js|json)/ }
+  match 'vk_posts', to: 'posts#vk_posts', via: 'get', constraints: { format: /(js|json|mobile)/ }
 
   resources :posts, only:[:index, :show]
   match 'posts_preview', to: 'posts#posts_preview', via: 'get', constraints: { format: /(js|json)/ }

@@ -1,0 +1,32 @@
+= "#{@current_week}-Неделя"	
+table.table
+	thead
+		th
+		- 6.times do |i|
+			- if @current_day == i + 1 && @current_week == what_week?
+				th.current
+					span.badge = truncate(to_day(i + 1), length: 3, omission: " ")
+			- else
+				th 
+					span.badge = truncate(to_day(i + 1), length: 3, omission: " ")
+	tbody
+		- 5.times do |i|
+			tr
+				td.legends
+					span.badge = i + 1
+				- 6.times do |j|
+					- if @lessons.any? {|lesson| lesson.number == i+1 && lesson.day == j+1}
+						td
+						 	- lesson = @lessons.find {|lesson| lesson.number == i+1 && lesson.day == j+1}
+							= truncate(lesson.name, length: 4, omission: " ")
+							p
+								span.glyphicon.glyphicon-map-marker
+								= lesson.classroom
+							p
+								span.glyphicon.glyphicon-pencil
+								= truncate(to_type(lesson.form), length: 4, omission: " ")
+							/ br
+							/ = "Пара-#{lesson.number}, #{to_day(lesson.day)}"
+					- else 
+						td.disabled
+						 | Нет
