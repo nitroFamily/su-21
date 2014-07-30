@@ -8,6 +8,8 @@
 			= link_to "День", day_path
 		li 
 			= link_to "Неделя", week_path
+		li 
+			= link_to "Посты", posts_path
 		- if signed_in?
 			li
 				= link_to "Админка", admin_path
@@ -20,9 +22,12 @@
 		.photo
 
 	.sb-footer
-		i class="fa fa-vk fa-lg"
-		i class="fa fa-envelope-o fa-lg"
-		i class="fa fa-github fa-lg"
+		a href="http://vk.com/su_21" 
+			i class="fa fa-vk fa-lg"
+		a href="mailto:su21spbsut@gmail.com?subject=Отправлено с сайта Су-21"
+			i class="fa fa-envelope-o fa-lg"
+		a href="https://github.com/nitroFamily/su-21"
+			i class="fa fa-github fa-lg"
 		hr
 		p
 			= "#{get_day_info[0]}-Неделя, #{to_day(get_day_info[1])}"

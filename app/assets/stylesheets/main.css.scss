@@ -11,11 +11,13 @@
 @import "partials/day-lessons";
 @import "partials/week-lessons";
 @import "partials/admin-pages";
+@import "partials/posts-pages";
+@import "partials/pagination";
 
 
 // Other
 .sb-site {
-	padding-top: 15px;
+	padding: 15px 0;
 }
 
 #epiceditor {

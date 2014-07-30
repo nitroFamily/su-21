@@ -5,4 +5,5 @@
 $(document).ready ->
   $(document).on "click", "ul.pagination a", (e) ->
     $.getScript @href
+    $("body").animate scrollTop: 0, 500
     false

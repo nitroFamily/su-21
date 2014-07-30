@@ -1,0 +1,13 @@
+.container
+	.row
+		.col-md-12
+			- @posts.each do |post|
+				h2 
+					= link_to post.title, post_path(post)
+				p = truncate(post.text.gsub(/(-+)|(`+)|(#+)/," "), length: 300)
+				p.meta 
+					span.glyphicon.glyphicon-time>
+					= "#{time_ago_in_words(post.updated_at)} ago"
+					|  >> 
+					= link_to " Читать", post_path(post)
+			= will_paginate @posts, renderer: BootstrapPagination::Rails

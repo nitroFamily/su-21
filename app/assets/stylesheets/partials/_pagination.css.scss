@@ -1,0 +1,22 @@
+.pagination {
+	.active {
+		span {
+			background-color: $primary-color;
+			border-color: $primary-color;
+			cursor: initial;
+			color: #FFF;
+			&:hover {
+				border-color: $primary-color;
+				background-color: $primary-color;
+			}
+		}
+	}
+	li {
+		a {
+			color: lighten($font-color, 10%);
+			&:hover {
+				color: darken($font-color, 50%);
+			}
+		}
+	}
+} // end .pagination

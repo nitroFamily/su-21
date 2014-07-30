@@ -1,6 +1,20 @@
+- content_for(:nav) do
+	= link_to posts_path do
+		div.nav-button.middle-button
+			i.fa.fa-chevron-left.fa-2x
+	div.nav-button.bottom-button.hidden
+		i.fa.fa-chevron-up.fa-2x
+- content_for(:head) do
+	= javascript_include_tag "posts"
+
 #posts
 	.container
 		.row
 			.col-md-12
-				h1 = @post.title
+				div.center
+					h1 = @post.title
+					p.meta 
+							span.glyphicon.glyphicon-time>
+							= "#{time_ago_in_words(@post.updated_at)} ago"
+				hr
 				p = markdown @post.text

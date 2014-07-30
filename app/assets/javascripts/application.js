@@ -20,5 +20,9 @@
     $.slidebars();
     $("#sb-site").addClass("gradient");
    	$("#random-img button").click(getRandomImage);
+   	$(document).scroll(function(){
+   		var top = $("body").scrollTop();
+   		$("#nav-wrapper").css({ top: top });
+   	});
   }); // end ready
 }) (jQuery);

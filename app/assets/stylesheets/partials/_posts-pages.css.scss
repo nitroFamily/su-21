@@ -1,0 +1,15 @@
+#posts {
+	.container {
+		padding: 10px 20px;
+		background-color: #FFF;
+		@include border-radius(4px);
+		@include shadow;
+		h2 {
+			font-weight: 300;
+		}
+		.meta {
+			color: lighten($font-color, 50%);
+			font-weight: 300;
+		}
+	}
+}

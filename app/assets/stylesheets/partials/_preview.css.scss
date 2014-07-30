@@ -52,9 +52,6 @@
 	h5 {
 		margin: 20px 0;
 	}
-	#list-group-wrapper {
-		height: 250px;
-	}
 	.list-group {
 		display: none;
 		box-shadow: none;
@@ -115,7 +112,4 @@
 			}
 		} // end .list-group-item
 	} // end .list-group
-	#list-group-wrapper {
-		height: 360px !important;
-	}
 } // end .posts-preview

@@ -1,6 +1,7 @@
 $('.vk-preview').html('<%= escape_javascript(render("static_pages/vk_posts")) %>');
 $(".vk-preview .list-group").fadeIn(400);
 $(".vk-preview #posts-nav a[data-remote]").click(function(){
+	$(".vk-preview #list-group-wrapper").height($(".vk-preview #list-group-wrapper").height());
   $(".vk-preview .list-group").fadeOut(400, function(){
   	$("#fa-spin-wrapper").show();
   });

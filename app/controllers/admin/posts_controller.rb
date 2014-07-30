@@ -5,6 +5,10 @@ class Admin::PostsController < Admin::AdminController
 		@posts = Post.search(params[:search]).order(sort_column + " " + sort_direction).paginate(per_page: 10, page: params[:page])
 	end
 
+	def show
+		@post = Post.find(params[:id])
+	end
+
 	def new 
 		@post = Post.new
 	end

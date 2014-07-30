@@ -1,0 +1,9 @@
+- content_for(:page_header, @post.title)
+
+ul.nav.nav-tabs
+	li
+		= link_to "Все", admin_posts_path
+	li 
+		= link_to "Создать новый", new_admin_post_path
+
+p = markdown @post.text

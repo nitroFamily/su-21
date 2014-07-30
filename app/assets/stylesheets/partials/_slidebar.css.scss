@@ -1,10 +1,13 @@
-.sb-toggle-left {
+#nav-wrapper {
+	position: absolute;
+}
+
+.nav-button {
+	left: 15px;
 	position: absolute;
 	z-index: 1;
 	border-radius: 4px;
 	border: 1px solid darken($font-color, 5%);
-	top: 15px;
-	left: 15px;
 	background-color: $font-color;
 	color: #FFF;
 	width: 45px;
@@ -22,7 +25,19 @@
 		padding-top: 2px;
 		@include align-center;
 	}
-} // end .sb-toggle-left
+} // end .nav-button
+
+.top-button {
+	top: 15px;
+}
+
+.middle-button {
+	top: 65px;
+}
+
+.bottom-button {
+	top: 115px;
+}
 
 .sb-slidebar {
 	color: #fff;
@@ -57,6 +72,9 @@
 		position: absolute;
 		bottom: 0;
 		text-align: center;
+		a {
+			color: #FFF;
+		}
 		i {
 			@include css-transition(0.25s);
 			margin: 0 5px;
@@ -83,7 +101,7 @@
 			display: none;
 			img {
 				max-width: 100%;
-				max-height: 35%;
+				max-height: 30%;
 				border-radius: 4px;
 			}
 		} // end .photo

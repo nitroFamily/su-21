@@ -1,13 +1,5 @@
+- content_for(:head) do
+	= javascript_include_tag "admin/admin"
+
 #posts
-	.container
-		.row
-			- @posts.each do |post|
-				.col-md-3
-					h1 
-						= link_to post.title, post_path(post)
-					p = truncate(post.text.gsub(/(-+)|(`+)|(#+)/," "), length: 200)
-					p 
-						= link_to " Читать", post_path(post)
-						|  | 
-						= "#{time_ago_in_words(post.updated_at)} ago"
-					hr
+	= render "posts"

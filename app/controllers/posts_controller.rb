@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 	end
 
   def index
-    @posts = Post.all.order(updated_at: :desc)
+    @posts = Post.all.order(updated_at: :desc).paginate(per_page: 10, page: params[:page])
   end
 
   def show 
@@ -24,6 +24,7 @@ class PostsController < ApplicationController
   end
 
   def posts_preview
-    @posts = Post.offset(params[:offset]).order(updated_at: :desc).limit(params[:limit])
+    @posts = Post.offset(params[:offset]).order(updated_at: :desc).limit(3)
+    @count = Post.count
   end
 end 
