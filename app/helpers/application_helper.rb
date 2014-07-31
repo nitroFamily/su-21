@@ -1,22 +1,42 @@
 module ApplicationHelper
-	def to_type num
-		case num
-	    when 1 then "Лекция"
-	    when 2 then "Практика"
-	    else "Лаб-я"
+	def to_type num, *opts
+		if opts[0] == :short
+			case num
+		    when 1 then "Лек."
+		    when 2 then "Пр."
+		    else "Лаб."
+			end
+		else
+			case num
+		    when 1 then "Лекция"
+		    when 2 then "Практика"
+		    else "Лаб-я"
+			end
 		end
 	end
 
-	def to_day num
-		case num
-			when 1 then "Понедельник"
-	    when 2 then "Вторник"
-	    when 3 then "Среда"
-	    when 4 then "Четверг"
-	    when 5 then "Пятница"
-	    when 6 then "Суббота"
-	    else "Воскресение"
-	   end
+	def to_day num, *opts
+		if opts[0] == :short
+			case num
+				when 1 then "Пн"
+		    when 2 then "Вт"
+		    when 3 then "Ср"
+		    when 4 then "Чт"
+		    when 5 then "Пт"
+		    when 6 then "Сб"
+		    else "Вс"
+		  end
+		else
+			case num
+				when 1 then "Понедельник"
+		    when 2 then "Вторник"
+		    when 3 then "Среда"
+		    when 4 then "Четверг"
+		    when 5 then "Пятница"
+		    when 6 then "Суббота"
+		    else "Воскресение"
+		  end
+		end
 	end
 
 	def to_time num

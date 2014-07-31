@@ -1,0 +1,55 @@
+.active {
+	color: orange !important;
+}
+
+.title {
+	color: #929292;
+}
+
+.tab-item {
+	&:active {
+		color: orange !important;
+	}
+}
+
+.bar {
+	// border: none;
+	box-shadow: none;
+	// background-color: #262626;
+}
+
+.icon-left-nav, .icon-right-nav, .btn {
+	color: #929292 !important;
+	&:active {
+		color: orange !important;
+	}
+}
+#post {
+	p {
+		font-size: 16px;
+	}
+}
+#posts {
+	h3 {
+		font-size: 18px !important;
+		font-weight: 400 !important;
+	}
+	.badge {
+		color: #FFF;
+		background-color: orange;
+	}
+
+	margin-bottom: 50px;
+}
+
+.table-view {
+	margin-top: 0 !important;
+	border: none;
+}
+
+.disabled {
+	background-color: #eeeeee;
+	color: #777777;
+}
+
+@import "modules/all";

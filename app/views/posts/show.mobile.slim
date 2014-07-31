@@ -1,0 +1,11 @@
+- content_for(:header) do
+	= link_to posts_path, "data-transition"=>"fade" do
+		button class="btn btn-link btn-nav pull-Left"
+			span class="icon icon-Left-nav"
+			| Назад
+		
+	h1 class="title"
+		= truncate(@post.title, length: 20)
+
+.content-padded#post
+	 = markdown @post.text

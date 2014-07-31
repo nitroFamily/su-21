@@ -1,14 +1,24 @@
-= "#{@current_week}-Неделя"	
+- content_for(:header) do
+	div id="popover" class="popover"
+	  ul class="table-view"
+    	- 18.times do |i|
+				li.table-view-cell
+					= link_to "#{i+1} - Неделя", week_path(week: i + 1), "data-transition"=>"fade"
+	a href="#popover"
+	  h1 class="title"
+	    = "#{@current_week} - Неделя"
+	    span class="icon icon-caret"
+
 table.table
 	thead
 		th
 		- 6.times do |i|
 			- if @current_day == i + 1 && @current_week == what_week?
-				th.current
-					span.badge = truncate(to_day(i + 1), length: 3, omission: " ")
+				th
+					span.badge.current = to_day i + 1, :short
 			- else
 				th 
-					span.badge = truncate(to_day(i + 1), length: 3, omission: " ")
+					span.badge = to_day i + 1, :short
 	tbody
 		- 5.times do |i|
 			tr
@@ -18,15 +28,11 @@ table.table
 					- if @lessons.any? {|lesson| lesson.number == i+1 && lesson.day == j+1}
 						td
 						 	- lesson = @lessons.find {|lesson| lesson.number == i+1 && lesson.day == j+1}
-							= truncate(lesson.name, length: 4, omission: " ")
+							h4 = truncate(lesson.name, length: 4, omission: " ")
 							p
-								span.glyphicon.glyphicon-map-marker
 								= lesson.classroom
 							p
-								span.glyphicon.glyphicon-pencil
-								= truncate(to_type(lesson.form), length: 4, omission: " ")
-							/ br
-							/ = "Пара-#{lesson.number}, #{to_day(lesson.day)}"
+								= to_type lesson.form, :short
 					- else 
 						td.disabled
 						 | Нет

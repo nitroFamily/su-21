@@ -1,0 +1,30 @@
+table {
+	.current {
+		background-color: orange;
+		color: #FFF;
+	}
+	width: 97%;
+	margin: 5px 0 5px 3%;
+	thead {
+		tr {
+			th {
+				padding-bottom: 5px;
+			}
+		}
+	}
+	tbody {
+		tr {
+			td {
+				text-align: center;
+				h4 {
+					margin-top: 3px;
+					font-weight: 300;
+				}
+				h4,p {
+					margin-bottom: 3px;
+				}
+			}
+		}
+	}
+	margin-bottom: 55px;
+}

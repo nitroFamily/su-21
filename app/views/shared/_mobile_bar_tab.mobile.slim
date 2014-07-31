@@ -7,7 +7,7 @@ nav class="bar bar-tab"
 		span class="icon fa fa-table"
 		span class="tab-label" 
 			| Неделя
-	= link_to posts_path, class: "tab-item #{'active' if params[:action] == 'index'}", "data-transition"=>"fade" do
+	= link_to posts_path, class: "tab-item #{'active' if params[:action] == 'index' || params[:controller] == 'posts'}", "data-transition"=>"fade" do
 		span class="icon icon-pages"
 		span class="tab-label" 
 			| Посты
