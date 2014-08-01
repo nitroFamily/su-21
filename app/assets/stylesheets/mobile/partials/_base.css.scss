@@ -1,3 +1,19 @@
+#home-page {
+	height: 100%;
+	margin: 0 10px;
+	padding: 10px 0;
+
+	#home-page-bottom {
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+	}
+}
+
+.content {
+	margin-bottom: 50px;
+}
+
 .active {
 	color: orange !important;
 }
@@ -13,9 +29,7 @@
 }
 
 .bar {
-	// border: none;
 	box-shadow: none;
-	// background-color: #262626;
 }
 
 .icon-left-nav, .icon-right-nav, .btn {
@@ -26,7 +40,11 @@
 }
 #post {
 	p {
-		font-size: 16px;
+		font-size: 17px;
+	}
+	overflow-x: hidden;	
+	img {
+		max-width: 100%;
 	}
 }
 #posts {
@@ -50,6 +68,20 @@
 .disabled {
 	background-color: #eeeeee;
 	color: #777777;
+}
+
+pre {
+	display: block;
+	padding: 9.5px;
+	margin: 0 0 10px;
+	font-size: 13px;
+	line-height: 1.428571429;
+	word-break: break-all;
+	word-wrap: break-word;
+	color: #333333;
+	background-color: whitesmoke;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
 }
 
 @import "modules/all";

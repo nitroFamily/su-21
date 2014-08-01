@@ -1,9 +1,12 @@
 - content_for(:page_header, @post.title)
+- content_for(:head) do
+	= javascript_include_tag "magnific"
+	= javascript_include_tag "posts"
 
 ul.nav.nav-tabs
 	li
 		= link_to "Все", admin_posts_path
 	li 
 		= link_to "Создать новый", new_admin_post_path
-
-p = markdown @post.text
+article
+	p = markdown @post.text

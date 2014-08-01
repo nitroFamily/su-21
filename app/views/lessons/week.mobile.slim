@@ -9,30 +9,33 @@
 	    = "#{@current_week} - Неделя"
 	    span class="icon icon-caret"
 
-table.table
-	thead
-		th
-		- 6.times do |i|
-			- if @current_day == i + 1 && @current_week == what_week?
-				th
-					span.badge.current = to_day i + 1, :short
-			- else
-				th 
-					span.badge = to_day i + 1, :short
-	tbody
-		- 5.times do |i|
-			tr
-				td.legends
-					span.badge = i + 1
-				- 6.times do |j|
-					- if @lessons.any? {|lesson| lesson.number == i+1 && lesson.day == j+1}
-						td
-						 	- lesson = @lessons.find {|lesson| lesson.number == i+1 && lesson.day == j+1}
-							h4 = truncate(lesson.name, length: 4, omission: " ")
-							p
-								= lesson.classroom
-							p
-								= to_type lesson.form, :short
-					- else 
-						td.disabled
-						 | Нет
+- if @lessons.any?
+	table.table
+		thead
+			th
+			- 6.times do |i|
+				- if @current_day == i + 1 && @current_week == what_week?
+					th
+						span.badge.current = to_day i + 1, :short
+				- else
+					th 
+						span.badge = to_day i + 1, :short
+		tbody
+			- 5.times do |i|
+				tr
+					td.legends
+						span.badge = i + 1
+					- 6.times do |j|
+						- if @lessons.any? {|lesson| lesson.number == i+1 && lesson.day == j+1}
+							td
+							 	- lesson = @lessons.find {|lesson| lesson.number == i+1 && lesson.day == j+1}
+								h4 = truncate(lesson.name, length: 4, omission: " ")
+								p
+									= lesson.classroom
+								p
+									= to_type lesson.form, :short
+						- else 
+							td.disabled
+							 | Нет
+- else 
+	= render "spacer", page: "week"

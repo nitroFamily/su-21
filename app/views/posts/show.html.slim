@@ -5,16 +5,8 @@
 	div.nav-button.bottom-button.hidden
 		i.fa.fa-chevron-up.fa-2x
 - content_for(:head) do
+	= javascript_include_tag "magnific"
 	= javascript_include_tag "posts"
 
 #posts
-	.container
-		.row
-			.col-md-12
-				div.center
-					h1 = @post.title
-					p.meta 
-							span.glyphicon.glyphicon-time>
-							= "#{time_ago_in_words(@post.updated_at)} ago"
-				hr
-				p = markdown @post.text
+	= render "shared/post"

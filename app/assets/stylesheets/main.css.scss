@@ -13,7 +13,7 @@
 @import "partials/admin-pages";
 @import "partials/posts-pages";
 @import "partials/pagination";
-
+@import "partials/magnific";
 
 // Other
 .sb-site {
@@ -21,6 +21,7 @@
 }
 
 #epiceditor {
+	height: 500px;
 	iframe {
 		border-radius: 4px;
 	}

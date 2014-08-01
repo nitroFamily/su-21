@@ -1,14 +1,17 @@
 - content_for(:header) do
 	h1 class="title"
 		| Посты
-		
-ul.table-view#posts
-	- @posts.each do |post|
-		li class="table-view-cell"
-			= link_to post_path(post), class: "navigate-right", "data-transition"=>"fade" do
-				h3
-					= truncate(post.title, length: 20 ,separator: " ")
-				p 
-					= truncate(post.text.gsub(/(-+)|(`+)|(#+)/," "), separator: " ")
-				span.badge
-					= "#{time_ago_in_words(post.updated_at)} ago"
+
+- if @posts.any?		
+	ul.table-view#posts
+		- @posts.each do |post|
+			li class="table-view-cell"
+				= link_to post_path(post), class: "navigate-right", "data-transition"=>"fade" do
+					h3
+						= truncate(post.title, length: 20 ,separator: " ")
+					p 
+						= truncate(post.text.gsub(/(-+)|(`+)|(#+)/," "), separator: " ")
+					span.badge
+						= "#{time_ago_in_words(post.updated_at)} ago"
+- else 
+	h3.center.fw300 Пока пусто

@@ -3,7 +3,7 @@
 		= "#{to_day @current_day}, #{@current_week} - Неделя"
 	= link_to " ", day_path(prev_date(@current_week, @current_day)), class: "icon icon-left-nav pull-left", "data-transition"=>"fade"
 	= link_to " ", day_path(next_date(@current_week, @current_day)), class: "icon icon-right-nav pull-right", "data-transition"=>"fade"
-- if Settings.date <= Time.now
+- if @lessons.any?
 	ul class="table-view"
 		- 5.times do |i|
 			- if @lessons.any? { |lesson| lesson.number == i + 1 }
@@ -35,9 +35,4 @@
 			- if i == 1
 				li class="table-view-divider" Обед
 - else
-	.content-padded
-		h3.center.fw300 Еще отдыхаем
-		h4.center.fw300 
-			| Начинаем с 
-			= Settings.date 
-		= link_to "Что нас ждет", day_path(week: 1, day: 1), "data-transition"=>"fade", class: "btn btn-block"
+	= render "spacer", page:"day"

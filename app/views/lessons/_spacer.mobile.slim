@@ -1,0 +1,13 @@
+- if @current_week > 18
+	.content-padded
+		h3.center.fw300 Семестр закончился
+- else
+	.content-padded
+		h3.center.fw300 Еще отдыхаем
+		h4.center.fw300 
+			| Начинаем с 
+			= Settings.date 
+		- if page == "day"
+			= link_to "Что нас ждет", day_path(week: 1, day: 1), "data-transition"=>"fade", class: "btn btn-block"
+		- else
+			= link_to "Что нас ждет", week_path(week: 1), "data-transition"=>"fade", class: "btn btn-block"

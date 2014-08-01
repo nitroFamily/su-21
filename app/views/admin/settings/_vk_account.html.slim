@@ -1,0 +1,6 @@
+
+- if @user
+	= "Профиль (#{@user[0].first_name}, #{@user[0].last_name})  "
+	= link_to "Выйти", admin_settings_vk_destroy_path, method: :delete, class: "btn btn-danger", remote: true
+- else 
+	= link_to "Войти через Вк", admin_settings_vk_sign_up_path, class: "btn btn-default"
