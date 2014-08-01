@@ -1,9 +1,10 @@
+// $(".posts-preview #fa-spin-wrapper").hide();
 $('.posts-preview').html('<%= escape_javascript(render("static_pages/posts")) %>');
 $(".posts-preview .list-group").fadeIn(400);
 $(".posts-preview #posts-nav a[data-remote]").click(function(){
 	$(".posts-preview #list-group-wrapper").height($(".posts-preview #list-group-wrapper").height());
-  $(".posts-preview .list-group").fadeOut(400, function(){
-  	$(".posts-preview #list-group-wrapper").prepend("<div id='fa-spin-wrapper'><i class='fa fa-spinner fa-spin fa-2x'></i></div")
-  	$(".posts-preview #fa-spin-wrapper").show();
+  // $(".posts-preview .list-group").fadeOut(400, function(){
+  	// $(".posts-preview #list-group-wrapper").prepend("<div id='fa-spin-wrapper'><i class='fa fa-spinner fa-spin fa-2x'></i></div")
+  	// $(".posts-preview #fa-spin-wrapper").show();
   });
 });
