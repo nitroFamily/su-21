@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   
   private 
   	def mobile_device?
-  		request.user_agent =~ /Android|iPad/
+  		request.user_agent =~ /Mobile|webOS/
   	end
 
   	def prepare_for_mobile
