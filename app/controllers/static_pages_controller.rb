@@ -25,5 +25,6 @@ class StaticPagesController < ApplicationController
 											periodicity)
 											.order(number: :asc)
 		@posts = Post.order(updated_at: :desc).limit(3)
+		@count = Post.count
 	end
 end
