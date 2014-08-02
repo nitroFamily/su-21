@@ -100,8 +100,11 @@
 			}
 			p {
 				margin: 0 0 5px 0 !important;
+				a {
+					margin-left: 7px;
+				}
 			}
-			p:last-child {
+			p:nth-child(3) {
 				margin: 0;
 				text-align: center;
 				span {
@@ -109,6 +112,9 @@
 				}
 				color: lighten($font-color, 50%);
 				font-size: 12px;
+				#manage {
+					text-align: center;
+				}
 			}
 		} // end .list-group-item
 	} // end .list-group

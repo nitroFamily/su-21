@@ -7,9 +7,10 @@ h5
 				h3 
 					= link_to post.title, post_path(post)
 				p = truncate(post.text.gsub(/(-+)|(`+)|(#+)/," ") , length: 80)
-				p	
+				p
 					span.glyphicon.glyphicon-time 
 					= "#{time_ago_in_words(post.updated_at)} ago"
+				= render "shared/manage_links", edit_path: edit_admin_post_path(post), delete_path: admin_post_path(post), short:true
 #posts-nav
 	div class="btn-group center"
 		- if params[:offset].nil? || params[:offset].to_i == 0

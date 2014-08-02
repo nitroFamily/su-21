@@ -9,18 +9,19 @@
 		- else
 			.col-md-4.preview.lesson-preview
 				= render "lessons"
-		.col-md-4.preview.vk-preview
-			h5 
-				a href="#" Вк feed
-			#list-group-wrapper
-				#fa-spin-wrapper
-					i.fa.fa-spinner.fa-spin.fa-2x
-			#posts-nav
-				div class="btn-group center"
-					= link_to vk_posts_path, class: "btn btn-default", disabled: "disabled" do
-						span.glyphicon.glyphicon-chevron-left
-					= link_to vk_posts_path, class: "btn btn-default", disabled: "disabled" do
-						span.glyphicon.glyphicon-chevron-right
+		- if Settings.vk_id
+			.col-md-4.preview.vk-preview
+				h5 
+					a href="#" Вк feed
+				#list-group-wrapper
+					#fa-spin-wrapper
+						i.fa.fa-spinner.fa-spin.fa-2x
+				#posts-nav
+					div class="btn-group center"
+						= link_to vk_posts_path, class: "btn btn-default", disabled: "disabled" do
+							span.glyphicon.glyphicon-chevron-left
+						= link_to vk_posts_path, class: "btn btn-default", disabled: "disabled" do
+							span.glyphicon.glyphicon-chevron-right
 		- unless @posts.empty?
 			.col-md-4.preview.posts-preview
 				= render "posts"

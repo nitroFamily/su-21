@@ -1,0 +1,7 @@
+#manage
+	= link_to edit_path do
+		span.glyphicon.glyphicon-pencil
+		= "Редактировать" unless defined? short 
+	= link_to delete_path, method: :delete do
+		span.glyphicon.glyphicon-remove
+		= "Удалить" unless defined? short
