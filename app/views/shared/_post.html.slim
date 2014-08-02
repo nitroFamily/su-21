@@ -1,11 +1,16 @@
-.container
-	.row
-		.col-md-12
-			div.center
-				h1 = @post.title
-				p.meta 
-						span.glyphicon.glyphicon-time>
-						= "#{time_ago_in_words(@post.updated_at)} ago"
-			hr
-			article
-				p = markdown @post.text
+article
+	div.center
+		h1 = @post.title
+		p.meta 
+				span.glyphicon.glyphicon-time
+				= "#{time_ago_in_words(@post.updated_at)} ago"
+		- if signed_in?
+			p 
+				= link_to edit_admin_post_path(@post) do
+					span.glyphicon.glyphicon-pencil
+					| Редактировать
+				= link_to admin_post_path(@post), method: :delete do
+					span.glyphicon.glyphicon-remove
+					| Удалить
+	hr
+	p = markdown @post.text

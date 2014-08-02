@@ -10,4 +10,6 @@
 					= "#{time_ago_in_words(post.updated_at)} ago"
 					|  >> 
 					= link_to " Читать", post_path(post)
+			- if signed_in?
+				= link_to "Создать новый пост", new_admin_post_path, class: "btn btn-warning"
 			= will_paginate @posts, renderer: BootstrapPagination::Rails

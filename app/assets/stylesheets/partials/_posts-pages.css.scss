@@ -7,11 +7,12 @@
 		h2 {
 			font-weight: 300;
 		}
-		.meta {
-			color: lighten($font-color, 50%);
-			font-weight: 300;
-		}
 	}
+}
+
+.meta {
+	color: lighten($font-color, 50%);
+	font-weight: 300;
 }
 
 article {
@@ -22,5 +23,8 @@ article {
 		display: none;
 		height: 75px;
 		margin-bottom: 3px;
+	}
+	span {
+		margin: 0 3px 0 6px;
 	}
 }

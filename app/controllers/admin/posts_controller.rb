@@ -42,7 +42,7 @@ class Admin::PostsController < Admin::AdminController
     respond_to do |format|
       format.html do
         flash[:success] = "Пост удален"
-        redirect_to admin__path
+        redirect_to admin_posts_path
       end
       format.js { flash.now[:success] = "Пост удален" }
     end
