@@ -12,17 +12,21 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require turbolinks
 //= require bootstrap
 //= require tumblr_img
+//= require slidebars
 
-(function($) {
-  $(document).ready(function() {
-    $.slidebars();
-    $("#sb-site").addClass("gradient");
-   	$("#random-img button").click(getRandomImage);
-   	$(document).scroll(function(){
-   		var top = $("body").scrollTop();
-   		$("#nav-wrapper").css({ top: top });
-   	});
-  }); // end ready
-}) (jQuery);
+function ready() {
+	var slidebar = new $.slidebars();
+  $("#sb-site").addClass("gradient");
+ 	$("#random-img button").click(getRandomImage);
+ 	$(document).scroll(function(){
+ 		var top = $("body").scrollTop();
+ 		$("#nav-wrapper").css({ top: top });
+ 	});
+}; // end ready
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
+// $(document).on("page:before-change", $("#sb-site"));
