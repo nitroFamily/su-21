@@ -1,3 +1,4 @@
+
 var opts = {
   container: 'epiceditor',
   textarea: 'post_text',
@@ -31,7 +32,3 @@ var opts = {
     toggleFullscreen: 'Enter Fullscreen'
   }
 };
-
-$(document).ready(function(){
-  var editor = new EpicEditor(opts).load();
-});

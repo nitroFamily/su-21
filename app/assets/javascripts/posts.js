@@ -1,4 +1,4 @@
-$(document).ready(function() {
+function posts_ready() {
 	$("p").has("img").each(function(i, p){
 		$(p).children().filter("img").wrap(function(){ 
 			$(this).show();
@@ -38,4 +38,8 @@ $(document).ready(function() {
  		button.addClass("hidden");
  		body.animate({scrollTop: 0}, 500);
  	}); // end click
-}); // end ready
+}; // end ready
+
+
+$(document).ready(posts_ready);
+$(document).on('page:load', posts_ready);

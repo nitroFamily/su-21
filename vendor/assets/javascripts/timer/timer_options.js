@@ -31,6 +31,10 @@ var timerOpt = {
 	      }
     }
 }
-$(document).ready(function(){
+
+function timer_ready(){
 	$("#time").TimeCircles(timerOpt);
-});
+};
+
+$(document).ready(timer_ready);
+$(document).on('page:load', timer_ready);

@@ -216,7 +216,13 @@
 				}
 			}
 		}
-			
+		
+		function get_hostname(link){
+			var parser = document.createElement('a');
+			parser.href = link;
+			return parser.hostname;
+		}
+
 		// Close either Slidebar
 		function close(link) {
 			if (leftActive || rightActive) { // If a Slidebar is open.
@@ -235,7 +241,13 @@
 					if ($right) $right.removeClass('sb-active');
 					// if (link) window.location = link; // If a link has been passed to the function, go to it.
 					// Using Turbolink
-					if (link) Turbolinks.visit(link);
+					if (link) {
+						if(window.location.hostname != get_hostname(link)) {
+							window.location = link;
+						} else {
+							Turbolinks.visit(link);
+						}
+					}
 				}, 400);
 			}
 		}
