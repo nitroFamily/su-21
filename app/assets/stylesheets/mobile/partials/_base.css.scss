@@ -1,3 +1,41 @@
+.btn-gradient {
+	/* Legacy browsers */
+	background: lightsalmon url("gradient-bg.png") repeat-x top;
+	-o-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+	/* Recent browsers */
+	background: -webkit-gradient(
+		linear,
+		left top, right bottom,
+		from(#ffa325),
+		to(#ffa243)
+	);
+	background: -webkit-linear-gradient(
+		left top,
+		orange,
+		lightsalmon
+	);
+	background: -moz-linear-gradient(
+		left top,
+		orange,
+		lightsalmon
+	);
+	background: -o-linear-gradient(
+		left top,
+		orange,
+		lightsalmon
+	);
+	background: linear-gradient(
+		left top,
+		orange,
+		lightsalmon
+	);
+	color: #FFF !important;
+	border: none;
+}
+
 #home-page {
 	height: 100%;
 	margin: 0 10px;
@@ -32,7 +70,7 @@
 	box-shadow: none;
 }
 
-.icon-left-nav, .icon-right-nav, .btn {
+.icon-left-nav, .icon-right-nav, .btn-link {
 	color: #929292 !important;
 	&:active {
 		color: orange !important;

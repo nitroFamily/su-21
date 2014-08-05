@@ -83,4 +83,8 @@ module ApplicationHelper
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(renderOptions), markdownOptions)
     markdown.render(text).html_safe
 	end
+
+	def full_title(title)
+		title.empty? ? "Су-21" : "Су-21 | #{title}"
+	end
 end

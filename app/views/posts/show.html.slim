@@ -1,3 +1,4 @@
+- content_for(:title, truncate(@post.title, length: 30))
 - content_for(:nav) do
 	= link_to posts_path do
 		div.nav-button.middle-button

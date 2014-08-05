@@ -8,6 +8,6 @@
 			| Начинаем с 
 			= Settings.date 
 		- if page == "day"
-			= link_to "Что нас ждет", day_path(week: 1, day: 1), "data-transition"=>"fade", class: "btn btn-block"
+			= link_to "Что нас ждет", day_path(week: 1, day: 1), "data-transition"=>"fade", class: "btn btn-block btn-gradient"
 		- else
-			= link_to "Что нас ждет", week_path(week: 1), "data-transition"=>"fade", class: "btn btn-block"
+			= link_to "Что нас ждет", week_path(week: 1), "data-transition"=>"fade", class: "btn btn-block btn-gradient"

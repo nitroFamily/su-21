@@ -25,7 +25,15 @@
 //= require timer/timer_options
 //= require epic/epiceditor
 //= require epic/epiceditor_options
+//= require google_analytics
 
+function startSpinner() {
+	$("#spinner").show();
+}
+
+function stopSpinner() {
+	$("#spinner").hide();
+}
 
 function ready() {
 	var slidebar = new $.slidebars();
@@ -42,4 +50,5 @@ function ready() {
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
-// $(document).on("page:before-change", $("#sb-site"));
+$(document).on("page:fetch", startSpinner);
+$(document).on("page:receive", stopSpinner);
