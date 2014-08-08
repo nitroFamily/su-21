@@ -3,7 +3,7 @@
 	.row
 		- if @lessons.empty?
 			.col-md-4.preview.lesson-preview.bgi
-				= render "shared/time"
+				= render "shared/time", url: day_path(week: 1, day: 1)
 		- else
 			.col-md-4.preview.lesson-preview
 				= render "lessons"

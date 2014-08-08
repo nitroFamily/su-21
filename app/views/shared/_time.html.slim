@@ -1,3 +1,6 @@
 div#time-wrapper
 	h3 До начала семестра осталось
 	div id="time" data-date="#{Settings.date}"
+	- unless url && url.empty?
+		h3
+			= link_to "Что нас ждет", url

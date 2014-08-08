@@ -66,5 +66,5 @@
 			li class="list-group-item disabled"
 				h3.miss.center Семестр закончился
 	- else
-		= render "shared/time"
+		= render "shared/time", url: day_path(week: 1, day: 1)
 
