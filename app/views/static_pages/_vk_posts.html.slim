@@ -18,6 +18,9 @@ h5
 							- if post.attachments
 								i.fa.fa-file-o
 								= attachment_type_to_word post.attachments[0].type
+						p
+							i.fa-fa-comment-o
+							= post.comments.count
 #posts-nav								
 	div class="btn-group"
 		- if params[:offset].nil? || params[:offset].to_i == 0
