@@ -1,6 +1,6 @@
 function week_ready(){
 	$("#week_lessons").on('click', '.pagination a', function(){
-    $("#fa-spin-wrapper").show();
+		$("#spinner").show();
     $("#week_lessons table").addClass("disabled");
   });
 }; // end ready

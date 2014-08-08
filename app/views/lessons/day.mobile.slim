@@ -1,7 +1,14 @@
 - content_for(:title, "День")
 - content_for(:header) do
-	h1 class="title"
-		= "#{to_day @current_day}, #{@current_week} - Неделя"
+	div id="popover" class="popover"
+	  ul class="table-view"
+    	- (1..7).each do |i|
+				li.table-view-cell
+					= link_to to_day(i), day_path(week: @current_week, day: i), "data-transition"=>"fade"
+	a href="#popover"
+	  h1 class="title"
+	    = "#{to_day @current_day}, #{@current_week} - Неделя"
+	    span class="icon icon-caret"
 	= link_to " ", day_path(prev_date(@current_week, @current_day)), class: "icon icon-left-nav pull-left", "data-transition"=>"fade"
 	= link_to " ", day_path(next_date(@current_week, @current_day)), class: "icon icon-right-nav pull-right", "data-transition"=>"fade"
 - if @lessons.any?

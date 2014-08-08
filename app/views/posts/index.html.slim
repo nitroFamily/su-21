@@ -2,5 +2,8 @@
 - content_for(:head) do
 	= javascript_include_tag "admin/admin"
 
-#posts
-	= render "posts"
+- if @posts.any?
+	#posts
+		= render "posts"	
+- else
+	h3.center.fw300 Пока пусто

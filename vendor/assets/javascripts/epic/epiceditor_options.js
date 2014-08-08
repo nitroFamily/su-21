@@ -1,4 +1,5 @@
-
+var hostname = window.location.hostname
+var port = window.location.port
 var opts = {
   container: 'epiceditor',
   textarea: 'post_text',
@@ -12,9 +13,9 @@ var opts = {
     autoSave: 100
   },
   theme: {
-    base: 'http://localhost:3000/assets/epic/epiceditor.css',
-    preview: 'http://localhost:3000/assets/bootstrap.css',
-    editor: 'http://localhost:3000/assets/epic/epic-light.css'
+    base: 'http://' + hostname + ':' + port + '/assets/epic/epiceditor.css',
+    preview: 'http://' + hostname + ':' + port + '/assets/bootstrap.css',
+    editor: 'http://' + hostname + ':' + port + '/assets/epic/epic-light.css'
   },
   button: {
     preview: true,

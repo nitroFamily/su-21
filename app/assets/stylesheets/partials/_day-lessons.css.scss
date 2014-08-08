@@ -1,8 +1,15 @@
 #lessons {
-	.day-nav a, #list-group-wrapper, .list-group {
+	.day-nav .col-xs-3 a, #list-group-wrapper, .list-group {
 		@include border-radius(4px);
 		@include shadow;
 	}
+	.dropdown-menu {
+		margin-top: -25px;
+	}
+	.disabled {
+		background-color: #eeeeee;
+		color: #999999;
+	}	
 	#list-group-wrapper {
 		height: 496px;
 		background-color: #FFF;
@@ -16,7 +23,7 @@
 		}
 	}
 	.list-group {
-		display: none;
+		// display: none;
 		li {
 			padding: 0 15px;
 			h3 {

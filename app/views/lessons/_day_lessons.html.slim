@@ -3,18 +3,24 @@
 		= link_to day_path(prev_date(@current_week, @current_day)), class: "btn btn-default", remote: true do
 			span.glyphicon.glyphicon-chevron-left
 	.col-xs-6
-		h3.fw300 = to_day @current_day
-		h4.fw100 
-			= @current_week
-			|  - Неделя
+		div class="dropdown"
+			div id="dropdownMenu1" data-toggle="dropdown" 
+				h3.fw300 
+					= to_day @current_day
+					span class="caret"
+				h4.fw100 
+					= @current_week
+					|  - Неделя 
+			ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"
+				- (1..7).each do |i|
+					li role="presentation"
+						= link_to to_day(i), day_path(week: @current_week, day: i), "role" => "menuitem",  "tabindex" => "-1", remote: true
 	.col-xs-3
 		= link_to day_path(next_date(@current_week, @current_day)), class: "btn btn-default", remote: true do
 			span.glyphicon.glyphicon-chevron-right
 
 - if @lessons.any?
 	#list-group-wrapper
-		#fa-spin-wrapper
-			i.fa.fa-spinner.fa-spin.fa-2x
 		ul class="list-group"
 			- 5.times do |i|
 				- if @lessons.any? { |lesson| lesson.number == i + 1 }
