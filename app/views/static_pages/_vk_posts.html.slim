@@ -18,8 +18,8 @@ h5
 							- if post.attachments
 								i.fa.fa-file-o
 								= attachment_type_to_word post.attachments[0].type
-							i.fa-fa-comment-o
-							= post.comments.count
+							i.fa.fa-comment-o
+							= post.comments["count"]
 
 #posts-nav								
 	div class="btn-group"
