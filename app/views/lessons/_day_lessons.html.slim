@@ -18,8 +18,8 @@
 	.col-xs-3
 		= link_to day_path(next_date(@current_week, @current_day)), class: "btn btn-default", remote: true do
 			span.glyphicon.glyphicon-chevron-right
-
-- if @lessons.any?
+			
+- if @current_week >= 1 && @current_week <= 18
 	#list-group-wrapper
 		ul class="list-group"
 			- 5.times do |i|

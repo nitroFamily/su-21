@@ -11,7 +11,7 @@
 	  h1 class="title"
 	    = "#{to_day @current_day}, #{@current_week} - Неделя"
 	    span class="icon icon-caret"
-- if @lessons.any?
+- if @current_week >= 1 && @current_week <= 18
 	ul class="table-view"
 		- 5.times do |i|
 			- if @lessons.any? { |lesson| lesson.number == i + 1 }
