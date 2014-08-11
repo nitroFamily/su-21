@@ -60,6 +60,18 @@
 	color: #929292;
 }
 
+header {
+	.icon {
+		padding: 10px;
+	}
+	.pull-left {
+		padding-left: 0;
+	}
+	.pull-right {
+		padding-right: 0;
+	}
+}
+
 .tab-item {
 	&:active {
 		color: orange !important;

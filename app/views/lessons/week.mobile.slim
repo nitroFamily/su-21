@@ -1,5 +1,7 @@
 - content_for(:title, "Неделя")
 - content_for(:header) do
+	= link_to " ", week_path(week: @current_week - 1), class: "icon icon-left-nav pull-left", "data-transition"=>"fade"
+	= link_to " ", week_path(week: @current_week + 1), class: "icon icon-right-nav pull-right", "data-transition"=>"fade"
 	div id="popover" class="popover"
 	  ul class="table-view"
     	- 18.times do |i|
@@ -9,8 +11,6 @@
 	  h1 class="title"
 	    = "#{@current_week} - Неделя"
 	    span class="icon icon-caret"
-	= link_to " ", week_path(week: @current_week - 1), class: "icon icon-left-nav pull-left", "data-transition"=>"fade"
-	= link_to " ", week_path(week: @current_week + 1), class: "icon icon-right-nav pull-right", "data-transition"=>"fade"
 
 - if @lessons.any?
 	table.table
