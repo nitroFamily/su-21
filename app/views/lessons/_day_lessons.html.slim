@@ -1,50 +1,27 @@
 .center.row.day-nav
 	.col-xs-3
-		= link_to day_path(prev_date(@current_week, @current_day)), class: "btn btn-default", remote: true do
-			span.glyphicon.glyphicon-chevron-left
+		= @lessons.prev_link
 	.col-xs-6
 		div class="dropdown"
 			div id="dropdownMenu1" data-toggle="dropdown" 
 				h3.fw300 
-					= to_day @current_day
+					= to_day @date_info.day
+					= @date_info.date
 					span class="caret"
 				h4.fw100 
-					= @current_week
+					= @date_info.week
 					|  - Неделя 
 			ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"
-				- (1..7).each do |i|
-					li role="presentation"
-						= link_to to_day(i), day_path(week: @current_week, day: i), "role" => "menuitem",  "tabindex" => "-1", remote: true
+				= @lessons.dropdown_links
 	.col-xs-3
-		= link_to day_path(next_date(@current_week, @current_day)), class: "btn btn-default", remote: true do
-			span.glyphicon.glyphicon-chevron-right
+		= @lessons.next_link
 			
-- if @current_week >= 1 && @current_week <= 18
+- if @date_info.week >= 1 && @date_info.week <= 18
 	#list-group-wrapper
 		ul class="list-group"
 			- 5.times do |i|
-				- if @lessons.any? { |lesson| lesson.number == i + 1 }
-					- lesson = @lessons.find { |lesson| lesson.number == i + 1 }
-					li class="list-group-item"
-						.row
-							.col-xs-1
-								span class="label"
-									= lesson.number
-							.col-xs-11
-								h3
-									= lesson.name
-								- if signed_in?
-									= render "shared/manage_links", edit_path: edit_admin_lesson_path(lesson), delete_path: admin_lesson_path(lesson), short:true
-								p 
-									span.glyphicon.glyphicon-time 
-									= to_time lesson.number
-								p	
-									span.glyphicon.glyphicon-map-marker
-									| А. 
-									= lesson.classroom
-								p	
-									span.glyphicon.glyphicon-pencil
-									= to_type(lesson.form)
+				- if lesson = @lessons.find { |lesson| lesson.number == i + 1 }
+					= render "day_lesson", lesson: lesson
 				- else 
 					li class="list-group-item disabled"
 						.row
@@ -61,7 +38,7 @@
 					li.list-group-item.list-group-item-warning.center
 						h4.fw300 Обед
 - else 
-	- if @current_week > 18
+	- if @date_info.week > 18
 		ul class="list-group"
 			li class="list-group-item disabled"
 				h3.miss.center Семестр закончился

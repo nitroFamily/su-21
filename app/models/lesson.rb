@@ -31,4 +31,19 @@ class Lesson < ActiveRecord::Base
       scoped
     end
   end
+
+  def self.get_by(opts = {})
+    if opts[:day].blank?
+      where("start_week <= ? AND end_week >= ? AND (periodicity = ? OR periodicity = 3)",
+            opts[:week],
+            opts[:week],
+            opts[:periodicity]).order(number: :asc)
+    else
+      where("day = ? AND start_week <= ? AND end_week >= ? AND (periodicity = ? OR periodicity = 3)", 
+            opts[:day], 
+            opts[:week], 
+            opts[:week],
+            opts[:periodicity]).order(number: :asc)
+    end
+  end
 end

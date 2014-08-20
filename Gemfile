@@ -26,6 +26,7 @@ gem "rails-settings-cached", "0.3.1"
 gem 'vkontakte_api', '~> 1.4'
 gem 'redcarpet'
 gem 'unicorn'
+gem 'draper', '~> 1.3'
 
 group :production do
 	gem 'unicorn'

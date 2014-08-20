@@ -20,21 +20,8 @@
 									p 
 										= i + 1
 								- 6.times do |j|
-									- if @lessons.any? {|lesson| lesson.number == i+1 && lesson.day == j+1}
-										td
-										 	- lesson = @lessons.find {|lesson| lesson.number == i+1 && lesson.day == j+1}
-											h3
-												= lesson.name
-											- if signed_in?
-												= render "shared/manage_links", edit_path: edit_admin_lesson_path(lesson), delete_path: admin_lesson_path(lesson), short:true
-											p
-												span.glyphicon.glyphicon-map-marker
-												= lesson.classroom
-											p
-												span.glyphicon.glyphicon-pencil
-												= to_type(lesson.form)
-											/ br
-											/ = "Пара-#{lesson.number}, #{to_day(lesson.day)}"
+									- if lesson = @lessons.find {|lesson| lesson.number == i+1 && lesson.day == j+1}
+										= render "week_lesson", lesson: lesson
 									- else 
 										td.disabled
 											h3 Пары нет

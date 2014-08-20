@@ -1,5 +1,5 @@
 #lessons {
-	.day-nav .col-xs-3 a, #list-group-wrapper, .list-group {
+	.day-nav .col-xs-3 a, #list-group-wrapper {
 		@include border-radius(4px);
 		@include shadow;
 	}
@@ -11,7 +11,6 @@
 		color: #999999;
 	}	
 	#list-group-wrapper {
-		height: 496px;
 		background-color: #FFF;
 	}
 	.center {
