@@ -1,6 +1,6 @@
 var getRandomImage = function(){
   $(".photo").fadeOut();  
-  var tumblrUrl = "http://api.tumblr.com/v2/blog/";
+  var tumblrUrl = "https://api.tumblr.com/v2/blog/";
   var tumblrData = {
     limit: 1,
     api_key: "AyOAAqS8hOLrMwUZrTqaBsj8DU9QNYQojpN3bmp4bRceGoX8QA",
