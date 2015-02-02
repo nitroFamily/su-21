@@ -13,9 +13,9 @@ var opts = {
     autoSave: 100
   },
   theme: {
-    base: 'http://' + hostname + ':' + port + '/assets/epic/epiceditor.css',
-    preview: 'http://' + hostname + ':' + port + '/assets/bootstrap.css',
-    editor: 'http://' + hostname + ':' + port + '/assets/epic/epic-light.css'
+    base: 'https://' + hostname + ':' + port + '/assets/epic/epiceditor.css',
+    preview: 'https://' + hostname + ':' + port + '/assets/bootstrap.css',
+    editor: 'https://' + hostname + ':' + port + '/assets/epic/epic-light.css'
   },
   button: {
     preview: true,
