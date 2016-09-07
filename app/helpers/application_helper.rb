@@ -85,6 +85,6 @@ module ApplicationHelper
 	end
 
 	def full_title(title)
-		title.empty? ? "Су-21" : "Су-21 | #{title}"
+		title.empty? ? "Timetable" : "Timetable | #{title}"
 	end
 end
